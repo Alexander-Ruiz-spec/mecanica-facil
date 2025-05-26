@@ -2,7 +2,7 @@
   "name": "Mecánica Fácil",
   "short_name": "Mecánica",
   "description": "Consejos rápidos y útiles sobre mantenimiento de tu coche.",
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#004aad",
