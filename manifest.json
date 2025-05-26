@@ -58,7 +58,7 @@
   "scope_extensions": [],
   "id": "/",
   "serviceworker": {
-    "src": "sw.js",
+    "src": "service-worker.js",
     "scope": "/",
     "type": "classic"
   }
