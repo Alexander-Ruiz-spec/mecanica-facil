@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="../css/mec-fac-bat.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niveles - Mecánica Fácil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="cabecera">
+    <img id="logo" src="../img/logo.png" alt="Logo">
+    <h1 id="titulo">Mecánica Fácil</h1>
+  </div>
+
+  <hr class="hr-anuncio1">
+  <hr style="width: 100%;">
+
+  <div class="contenedor-flex">
+    <div class="P-b">
+      <h1 class="titulo-bateria">PROBLEMAS PRINCIPALES...</h1>
+      <p class="texto-bateria">
+        Los síntomas de un nivel bajo de líquidos en un vehículo pueden afectar su funcionamiento. A continuación,
+        algunos de los problemas más comunes:
+        <br>- <strong>Aceite bajo:</strong> Puede provocar sobrecalentamiento o daño en el motor.
+        <br>- <strong>Líquido de frenos bajo:</strong> El coche puede frenar con dificultad o el pedal sentirse suave.
+        Podría indicar una fuga.
+        <br>- <strong>Anticongelante bajo:</strong> El motor se calienta excesivamente y puede emitir vapor.
+        <br>- <strong>Combustible bajo:</strong> Muchos fallos o apagones del motor se deben simplemente a falta de
+        gasolina.
+      </p>
+    </div>
+
+    <img class="imagen" src="../img/niveles.png" alt="niveles">
+  </div>
+
+  <div class="contenedor-flex">
+    <div class="solucion-rapida">
+      <h1 class="titulo-solucion">SOLUCIONES RÁPIDAS</h1>
+      <p class="texto-solucion">
+        Aquí te explicamos cómo revisar y mantener los niveles adecuados:
+        <br>- <strong>Aceite:</strong> Revisa con la varilla medidora con el motor frío y apagado. Cambia aceite y
+        filtro cada 5,000 a 10,000 km.
+        <br>- <strong>Líquido de frenos:</strong> Verifica el depósito en el motor (etiquetado como "brake fluid" o
+        "líquido de frenos"). Si baja con frecuencia, llévalo al taller.
+        <br>- <strong>Anticongelante:</strong> Revisa el depósito del radiador (nunca lo abras con el motor caliente).
+        Llena hasta la marca con anticongelante, no solo agua.
+        <br>- <strong>Gasolina:</strong> No esperes a la reserva. Llena cuando quede 1/4 de tanque. Si el auto falla
+        cuando está casi vacío, podría ser por suciedad en el tanque o la bomba de gasolina.
+      </p>
+    </div>
+  </div>
+
+  <div class="contenedor-flex">
+    <div class="VIDEOS">
+      <h1>VIDEOS DE CÓMO HACERLO</h1>
+      <a href="https://youtu.be/URG-MoowU4w?si=T0OCpB-l2_jaFALN" target="_blank">Video sobre revisión de niveles</a>
+      <iframe src="https://www.youtube.com/embed/URG-MoowU4w" title="Cómo mirar los niveles del coche"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- 🚗 F1 Coche animación -->
+  <div id="coche">
+    <img src="../img/f1.png" alt="Formula 1">
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const coche = document.getElementById('coche');
+      coche.style.display = 'block';
+
+      setTimeout(() => {
+        coche.style.transform = 'translateX(25vw)';
+      }, 300); // Empieza a moverse
+
+      setTimeout(() => {
+        coche.style.transform = 'translateX(0vw)'; // Rebote
+      }, 1300);
+    });
+  </script>
+
+  <a href="index.html"><button class="boton-regreso">Regresar</button></a>
+</body>
+
+</html>
+
+</html>

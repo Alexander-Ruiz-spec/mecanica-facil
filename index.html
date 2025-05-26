@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="../css/mec-fac.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <title>Mecanica Facil</title>
+</head>
+
+<body>
+    <div class="cabecera">
+        <img id="logo" src="../img/logo.png" alt="Logo">
+        <h1 id="titulo">Mecanica Facil</h1>
+    </div>
+
+    <hr style="position: absolute; left: 10%; height: 100%; margin-top: 90px;">
+
+    <div class="anuncio-carrusel">
+        <div class="anuncio-slide active">
+            <p>🔧 ¡Revisa tus frenos gratis!</p>
+        </div>
+        <div class="anuncio-slide">
+            <p>🛠️ 10% de descuento en baterías</p>
+        </div>
+        <div class="anuncio-slide">
+            <p>🚗 Cambio de aceite express</p>
+        </div>
+    </div>
+
+    <hr style="width: 100%;">
+
+    <div class="p-b">
+        <div class="botones">
+            <div class="btn-contenedor">
+                <img src="../img/bateria-i.png" alt="Baterías">
+                <a href="baterias.html" class="btn-link"><button class="btns">Baterías</button></a>
+            </div>
+            <div class="btn-contenedor">
+                <img src="../img/niveles.png" alt="Niveles">
+                <a href="niveles.html" class="btn-link"><button class="btns">Niveles</button></a>
+            </div>
+            <div class="btn-contenedor">
+                <img src="../img/llantas.png" alt="Llantas">
+                <a href="llantas.html" class="btn-link"><button class="btns">Llantas</button></a>
+            </div>
+            <div class="btn-contenedor">
+                <img src="../img/buj.png" alt="Servicios">
+                <a href="servicios.html" class="btn-link"><button class="btns">Servicios</button></a>
+            </div>
+            <div class="btn-contenedor">
+                <img src="../img/frenos.png" alt="Frenos">
+                <a href="Frenos.html" class="btn-link"><button class="btns">Frenos</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="imagen-texto-contenedor">
+        <div class="imagen-movible" id="imagen-movible">
+            <img src="../img/logo.png" alt="Imagen Movible">
+        </div>
+        <div class="texto-lateral">
+            <p>Mecánica Fácil es una página web educativa y práctica diseñada para ayudar a personas sin conocimientos
+                técnicos a entender y resolver problemas comunes en sus vehículos. Su objetivo principal es acercar la
+                mecánica automotriz al usuario promedio, brindando información clara, visual y accesible para que
+                cualquiera pueda aprender a identificar, prevenir y solucionar fallas sencillas en su auto.
+
+                La plataforma está pensada especialmente para quienes desean ahorrar dinero en reparaciones básicas,
+                ganar autonomía o simplemente entender mejor cómo funciona su vehículo. </p>
+        </div>
+    </div>
+
+
+
+    <!-- Imagen de Tsuru -->
+    <div id="tsuru">
+        <img src="../img/tsurrari.png" alt="tsurrari">
+    </div>
+
+    <div id="peyot">
+        <img src="../img/peyots.png" alt="peyots">
+    </div>
+
+    <!-- Coche F1 -->
+    <div id="coche">
+        <img src="../img/tsurrari.png" alt="Formula 1">
+    </div>
+
+    <script>
+        // Movimiento coche F1 + redirección animada
+        document.querySelectorAll(".btn-link").forEach(link => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const coche = document.getElementById("coche");
+                const body = document.body;
+
+                coche.style.transform = "translateX(120vw)";
+                setTimeout(() => {
+                    body.classList.add("salida");
+                    window.location.href = e.target.parentElement.href;
+                }, 1500);
+            });
+        });
+
+        // Carrusel automático de anuncios
+        const slides = document.querySelectorAll(".anuncio-slide");
+        let currentIndex = 0;
+        setInterval(() => {
+            slides[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add("active");
+        }, 4000);
+
+        // Función genérica para mover cualquier coche
+        function hacerMovible(elemento) {
+            let isDragging = false;
+            let offsetX = 0;
+            let offsetY = 0;
+
+            elemento.addEventListener("mousedown", function (e) {
+                isDragging = true;
+                offsetX = e.clientX - elemento.offsetLeft;
+                offsetY = e.clientY - elemento.offsetTop;
+            });
+
+            document.addEventListener("mousemove", function (e) {
+                if (isDragging) {
+                    elemento.style.left = (e.clientX - offsetX) + "px";
+                    elemento.style.top = (e.clientY - offsetY) + "px";
+                }
+            });
+
+            document.addEventListener("mouseup", function () {
+                isDragging = false;
+            });
+        }
+
+        // Selección de coches
+        const tsuru = document.getElementById("tsuru");
+        const peyot = document.getElementById("peyot");
+        const spark = document.getElementById("spark");
+
+        // Activar movimiento libre para todos
+        hacerMovible(tsuru);
+        hacerMovible(peyot);
+        hacerMovible(spark);
+
+    </script>
+    <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then((reg) => {
+          console.log("Service Worker registrado:", reg.scope);
+        })
+        .catch((err) => {
+          console.log("Error al registrar el Service Worker:", err);
+        });
+    });
+  }
+</script>
+
+
+</body>
+
+</html>

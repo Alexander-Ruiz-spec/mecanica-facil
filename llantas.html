@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="../css/mec-fac-bat.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLANTAS - Mecanica Facil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="cabecera">
+        <img id="logo" src="../img/logo.png" alt="Logo">
+        <h1 id="titulo">Mecanica Facil</h1>
+    </div>
+
+    <hr class="hr-anuncio1">
+    <hr style="width: 100%;">
+
+    <div class="contenedor-flex">
+        <div class="P-b">
+            <h1 class="titulo-bateria">PROBLEMAS PRINCIPALES...</h1>
+            <p class="texto-bateria">
+                La presión recomendada de las llantas de un vehículo se puede encontrar en el manual del propietario o
+                en la calcomanía que está en el marco de la puerta del conductor. .
+                <br><br>
+                Para corroborar la profundidad de los surcos de las llantas y su desgaste, existen medidores de
+                profundidad, que funcionan como un bolígrafo que indica la distancia al límite, que además marcan, por
+                medio de colores, qué tan segura es la rueda.
+                <br><br>
+                La presión de las llantas es un tema que muchos pasan por alto. ¿Cuántas veces no hemos escuchado la
+                frase "30 parejo" sin importar que sea un auto deportivo o un SUV? Muchas seguramente, sin embargo, el
+                mantenerla en niveles correctos puede ayudarnos a consumir menos combustible, a tener mejor agarre y a
+                ahorrar al no tener que cambiar antes de tiempo las llantas.
+                <br><br>
+                Una llanta bien inflada siempre será mejor en todo sentido. La norma es al menos revisar la presión una
+                vez por mes y también verificar que la llanta no tenga algún objeto enterrado.
+            </p>
+        </div>
+
+        <img class="imagen" src="../img/LLANTA.webp" alt="no cargo">
+    </div>
+
+    <div class="contenedor-flex">
+        <div class="solucion-rapida">
+            <h1 class="titulo-solucion">COMO SOLUCIONARLO</h1>
+            <p class="texto-solucion">
+                ¿Cómo se checan los niveles de las llantas?
+                <br><br>
+                Inflar la llanta a la presión recomendada que se encuentra en el letrero de la puerta debería hacer que
+                la luz se apague. Recuerde que una o más de las llantas pueden tener baja presión, por lo que siempre
+                debe verificar la presión en todas sus llantas.
+            </p>
+        </div>
+    </div>
+
+    <div class="contenedor-flex">
+        <div class="VIDEOS">
+            <h1>VIDEO DE COMO SOLUCIONARLO</h1>
+            <a href="https://youtu.be/sCuZ-M603tQ?si=zXWZlN-scDLpcSsF" target="_blank">Cómo medir la presión de las
+                llantas (manómetro)</a>
+            <iframe src="https://www.youtube.com/embed/sCuZ-M603tQ" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- 🚗 F1 Coche animación -->
+    <div id="coche">
+        <img src="../img/f1.png" alt="Formula 1">
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const coche = document.getElementById('coche');
+            coche.style.display = 'block';
+
+            setTimeout(() => {
+                coche.style.transform = 'translateX(25vw)';
+            }, 300);
+
+            setTimeout(() => {
+                coche.style.transform = 'translateX(0vw)';
+            }, 1300);
+        });
+    </script>
+
+    <a href="index.html"><button class="boton-regreso">Regresar</button></a>
+</body>
+
+</html>

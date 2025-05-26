@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="../css/mec-fac-bat.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batería - Mecanica Facil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="cabecera">
+    <img id="logo" src="../img/logo.png" alt="Logo">
+    <h1 id="titulo">Mecanica Facil</h1>
+  </div>
+
+  <hr class="hr-anuncio1">
+  <hr style="width: 100%;">
+
+  <div class="contenedor-flex">
+    <div class="P-b">
+      <h1 class="titulo-bateria">PROBLEMAS PRINCIPALES...</h1>
+      <p class="texto-bateria">
+        Los principales problemas de la batería de un vehículo pueden ser causados por varios factores. A continuación,
+        te
+        presento algunos de los más comunes:
+        <br>- CONEXIONES DEFECTUOSAS: Los tornillos o pernos que conectan los puertos de la batería con los cables
+        pueden
+        aflojarse, rompiendo la conexión y evitando que el vehículo arranque.
+        <br>- CORROCIÓN DE TERMINALES: La corrosión en los puertos de la batería puede generar una mala conexión y
+        reducir
+        la cantidad de corriente eléctrica que llega al motor.
+        <br>- DESUSO: Dejar el vehículo inactivo durante un largo período puede hacer que la batería pierda energía y no
+        pueda arrancar el motor.
+        <br>- PROBLEMAS DEL ALTERNADOR: Si el alternador no funciona correctamente, no podrá recargar la batería, lo que
+        puede provocar fallos en el sistema eléctrico del vehículo.
+        <br>- BAJA CALIDAD DE LA BATERIA: Instalar una batería de baja calidad puede aumentar el riesgo de fallos y
+        reducir su vida útil.
+        <br>- FALTA DE MANTENIMIENTO: No realizar el mantenimiento adecuado de la batería puede aumentar el riesgo de
+        fallos y reducir su vida útil.
+      </p>
+    </div>
+
+    <img class="imagen" src="../img/C.jpg" alt="NO CARGO">
+  </div>
+
+  <div class="contenedor-flex">
+    <div class="solucion-rapida">
+      <h1 class="titulo-solucion">SOLUCIONES RAPIDAS</h1>
+      <p class="texto-solucion">
+        Aquí les presento una solución rápida y resumida para los problemas de batería de un vehículo:
+        <br>- REVISAR LAS CONEXIONES: Asegúrate de que los tornillos o pernos que conectan los puertos de la batería con
+        los cables estén bien apretados.
+        <br>- LIMPIA LOS TERMINALES: Limpia los puertos de la batería y los cables para eliminar la corrosión.
+        <br>- CARGAR LA BATERÍA: Si el vehículo ha estado inactivo durante un largo período, carga la batería con un
+        cargador de batería.
+        <br>- REVISAR EL ALTERNADOR: Asegúrate de que el alternador esté funcionando correctamente y recargando la
+        batería.
+        <br>- REEMPLAZAR LA BATERÍA: Si la batería es de baja calidad o tiene más de dos o tres años, considera
+        reemplazarla con una nueva.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="contenedor-flex">
+    <div class="VIDEOS">
+      <h1>VIDEOS DE COMO HACERLO</h1>
+      <a href="https://youtu.be/DeSI567zt88?si=S1gLGSkfEyyfNGwN" target="_blank">Video de baterías</a>
+      <iframe src="https://www.youtube.com/embed/DeSI567zt88" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- 🚗 F1 Coche animación -->
+  <div id="coche">
+    <img src="../img/f1.png" alt="Formula 1">
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const coche = document.getElementById('coche');
+      coche.style.display = 'block';
+
+      setTimeout(() => {
+        coche.style.transform = 'translateX(25vw)';
+      }, 300); // Empieza a moverse
+
+      setTimeout(() => {
+        coche.style.transform = 'translateX(0vw)'; // Rebote
+      }, 1300);
+    });
+  </script>
+  <a href="index.html"><button class="boton-regreso">Regresar</button></a>
+</body>
+
+</html>

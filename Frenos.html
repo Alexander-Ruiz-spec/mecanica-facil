@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="../css/mec-fac-bat.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frenos - Mecánica Fácil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="cabecera">
+    <img id="logo" src="../img/logo.png" alt="Logo de Mecánica Fácil">
+    <h1 id="titulo">Mecánica Fácil</h1>
+  </div>
+
+  <hr class="hr-anuncio1">
+  <hr style="width: 100%;">
+
+  <div class="contenedor-flex">
+    <div class="P-b">
+      <h1 class="titulo-bateria">PROBLEMAS PRINCIPALES...</h1>
+      <p class="texto-bateria">
+        Aquí te explicamos cómo saber si hay problemas con tus frenos:
+        <br>- Verifica el nivel del líquido de frenos con el auto frío. El depósito debe estar entre los indicadores de
+        “mínimo” y “máximo”.
+        <br>- Si el nivel está bajo, debes rellenarlo inmediatamente.
+        <br>- Antes de arrancar, pisa el pedal. No debe sentirse blando ni flojo.
+        <br>- Al probar los frenos en un lugar seguro, el coche debe frenar con rapidez y sin desviarse.
+      </p>
+    </div>
+
+    <img class="imagen" src="../img/balatas.jpg" alt="Problema de balatas o frenos">
+  </div>
+
+  <div class="contenedor-flex">
+    <div class="solucion-rapida">
+      <h1 class="titulo-solucion">¿CÓMO SOLUCIONARLO?</h1>
+      <p class="texto-solucion">
+        En caso de emergencia o si los frenos fallan:
+        <br>- Usa el freno de emergencia o estacionamiento para reducir la velocidad, pero suéltalo si el auto derrapa.
+        <br>- Si no funciona, mantente atento para buscar alternativas de frenado (como bordillos o caminos en subida).
+        <br>- Llévalo a revisión inmediata. El sistema de frenos es vital para tu seguridad.
+      </p>
+    </div>
+  </div>
+
+  <div class="contenedor-flex">
+    <div class="VIDEOS">
+      <h1>VIDEO DE CÓMO SOLUCIONARLO</h1>
+      <a href="https://www.youtube.com/watch?v=Qu8AnqqT9yg" target="_blank">¿Por qué se quedan pegados los frenos?</a>
+      <iframe src="https://www.youtube.com/embed/Qu8AnqqT9yg" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- 🚗 Animación de Coche -->
+  <div id="coche">
+    <img src="../img/f1.png" alt="Coche Fórmula 1 animado">
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const coche = document.getElementById('coche');
+      coche.style.display = 'block';
+
+      setTimeout(() => {
+        coche.style.transform = 'translateX(25vw)';
+      }, 300);
+
+      setTimeout(() => {
+        coche.style.transform = 'translateX(0vw)';
+      }, 1300);
+    });
+  </script>
+
+  <a href="index.html"><button class="boton-regreso">Regresar</button></a>
+</body>
+
+</html>
