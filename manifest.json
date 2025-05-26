@@ -7,6 +7,8 @@
   "background_color": "#ffffff",
   "theme_color": "#004aad",
   "orientation": "portrait",
+  "lang": "es-MX",
+  "dir": "auto",
   "icons": [
     {
       "src": "img/logo.png",
@@ -42,7 +44,7 @@
   "categories": [],
   "screenshots": [],
   "related_applications": [],
-  "iarc_rating_id": "",
+  "iarc_rating_id": "pending",
   "prefer_related_applications": false,
   "protocol_handlers": [],
   "shortcuts": [],
@@ -52,6 +54,12 @@
     "client_mode": "auto"
   },
   "display_override": [],
+  "scope": "/",
+  "scope_extensions": [],
   "id": "/",
-  "scope": "/"
+  "serviceworker": {
+    "src": "sw.js",
+    "scope": "/",
+    "type": "classic"
+  }
 }
