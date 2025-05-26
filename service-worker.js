@@ -9,7 +9,7 @@ const urlsToCache = [
   "/servicios.html",
   "/manifest.json",
   "/service-worker.js",
-  "/img/logo.png"   // Ruta del logo según el manifest
+  "/img/logo.png"
 ];
 
 // Instalar y cachear archivos
@@ -45,9 +45,21 @@ self.addEventListener("fetch", (event) => {
       return (
         cachedResponse ||
         fetch(event.request).catch(() =>
-          caches.match("/index.html") // Opcional: reemplazar por una página offline.html si la tienes
+          caches.match("/index.html")
         )
       );
     })
   );
+});
+
+// Simulación básica de background sync
+self.addEventListener("sync", (event) => {
+  console.log("[ServiceWorker] Background sync triggered:", event.tag);
+  // Puedes agregar lógica personalizada aquí si lo deseas
+});
+
+// Simulación de notificaciones push
+self.addEventListener("push", (event) => {
+  console.log("[ServiceWorker] Push event recibido");
+  // También puedes usar self.registration.showNotification(...) si luego lo necesitas
 });
