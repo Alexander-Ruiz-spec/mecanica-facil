@@ -60,6 +60,16 @@
   "serviceworker": {
     "src": "service-worker.js",
     "scope": "/",
-    "type": "classic"
-  }
+    "type": "classic",
+    "update_via_cache": "none"
+  },
+  "background": {
+    "scripts": [],
+    "persistent": false
+  },
+  "periodic_sync": {
+    "min_interval": 0
+  },
+  "gcm_sender_id": "",
+  "gcm_user_visible_only": true
 }
