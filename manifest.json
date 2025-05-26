@@ -38,5 +38,20 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "categories": [],
+  "screenshots": [],
+  "related_applications": [],
+  "iarc_rating_id": "",
+  "prefer_related_applications": false,
+  "protocol_handlers": [],
+  "shortcuts": [],
+  "file_handlers": [],
+  "share_target": {},
+  "launch_handler": {
+    "client_mode": "auto"
+  },
+  "display_override": [],
+  "id": "/",
+  "scope": "/"
 }
