@@ -1,68 +1,50 @@
-const CACHE_NAME = "mecanica-facil-v1";
+const CACHE_NAME = "mecanica-facil-cache-v1";
+const OFFLINE_URL = "index.html"; // Usa tu index como fallback
 
-const urlsToCache = [
-  "/index.html",
-  "/baterias.html",
-  "/Frenos.html",
-  "/llantas.html",
-  "/niveles.html",
-  "/servicios.html",
-  "/manifest.json",
-  "/service-worker.js",
-  "/img/logo.png"
-];
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js");
 
-// Instalar y cachear archivos
-self.addEventListener("install", (event) => {
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
+});
+
+// Precarga el index.html como fallback
+self.addEventListener("install", async (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache);
-    })
+    caches.open(CACHE_NAME).then((cache) => cache.add(OFFLINE_URL))
   );
   self.skipWaiting();
 });
 
-// Activar y limpiar cachés viejos
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) =>
-      Promise.all(
-        cacheNames.map((cache) => {
-          if (cache !== CACHE_NAME) {
-            return caches.delete(cache);
-          }
-        })
-      )
-    )
-  );
-  self.clients.claim();
-});
+if (workbox.navigationPreload.isSupported()) {
+  workbox.navigationPreload.enable();
+}
 
-// Interceptar peticiones
+// Estrategia: Usa caché pero actualiza en segundo plano
+workbox.routing.registerRoute(
+  ({ request }) => request.mode === "navigate",
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: CACHE_NAME,
+  })
+);
+
+// Maneja navegación si no hay conexión
 self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      return (
-        cachedResponse ||
-        fetch(event.request).catch(() =>
-          caches.match("/index.html")
-        )
-      );
-    })
-  );
-});
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      (async () => {
+        try {
+          const preloadResp = await event.preloadResponse;
+          if (preloadResp) return preloadResp;
 
-// ⚠️ Silenciar warning de background sync
-self.addEventListener("sync", (event) => {
-  console.log("[SW] Evento de background sync recibido:", event.tag);
-});
-
-// ⚠️ Silenciar warning de push notifications
-self.addEventListener("push", (event) => {
-  console.log("[SW] Evento push recibido");
-});
-
-// ⚠️ Silenciar warning de periodic sync (si el navegador lo soporta)
-self.addEventListener("periodicsync", (event) => {
-  console.log("[SW] Evento periodic sync recibido:", event.tag);
+          const networkResp = await fetch(event.request);
+          return networkResp;
+        } catch (error) {
+          const cache = await caches.open(CACHE_NAME);
+          return await cache.match(OFFLINE_URL);
+        }
+      })()
+    );
+  }
 });
