@@ -154,9 +154,48 @@
     </script>
     <script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('service-worker.js').then(async (registration) => {
+      console.log('SW registrado:', registration);
+
+      // 🟢 Registrar background sync
+      if ('sync' in registration) {
+        try {
+          await registration.sync.register('sync-datos');
+          console.log('Background sync registrado');
+        } catch (e) {
+          console.warn('Error registrando background sync:', e);
+        }
+      }
+
+      // 🟢 Registrar periodic sync
+      if ('periodicSync' in registration) {
+        try {
+          await registration.periodicSync.register('sync-periodico', {
+            minInterval: 24 * 60 * 60 * 1000 // 1 día
+          });
+          console.log('Periodic sync registrado');
+        } catch (e) {
+          console.warn('Error registrando periodic sync:', e);
+        }
+      }
+
+      // 🟢 Push notification (sin backend, solo muestra el permiso)
+      const permission = await Notification.requestPermission();
+      if (permission === "granted") {
+        console.log("Permiso de notificaciones concedido");
+        const subscription = await registration.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: "<TU_CLAVE_PUBLICA_VAPID>" // Esto requiere backend real
+        });
+        console.log("Push registrado", subscription);
+      }
+
+    }).catch(err => {
+      console.error('Fallo al registrar el SW:', err);
+    });
   }
 </script>
+
 
 
 
