@@ -52,14 +52,17 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-// Simulación básica de background sync
+// ⚠️ Silenciar warning de background sync
 self.addEventListener("sync", (event) => {
-  console.log("[ServiceWorker] Background sync triggered:", event.tag);
-  // Puedes agregar lógica personalizada aquí si lo deseas
+  console.log("[SW] Evento de background sync recibido:", event.tag);
 });
 
-// Simulación de notificaciones push
+// ⚠️ Silenciar warning de push notifications
 self.addEventListener("push", (event) => {
-  console.log("[ServiceWorker] Push event recibido");
-  // También puedes usar self.registration.showNotification(...) si luego lo necesitas
+  console.log("[SW] Evento push recibido");
+});
+
+// ⚠️ Silenciar warning de periodic sync (si el navegador lo soporta)
+self.addEventListener("periodicsync", (event) => {
+  console.log("[SW] Evento periodic sync recibido:", event.tag);
 });
