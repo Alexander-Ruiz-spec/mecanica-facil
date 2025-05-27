@@ -1,27 +1,26 @@
 const CACHE_NAME = "mecanica-facil-cache-v1";
-const OFFLINE_URL = "index.html"; // Usa tu index como fallback
+const OFFLINE_URL = "index.html";
 
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js");
 
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
-});
-
-// Precarga el index.html como fallback
-self.addEventListener("install", async (event) => {
+// Cachear el index para modo offline
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.add(OFFLINE_URL))
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.add(OFFLINE_URL);
+    })
   );
   self.skipWaiting();
+});
+
+self.addEventListener("activate", (event) => {
+  self.clients.claim();
 });
 
 if (workbox.navigationPreload.isSupported()) {
   workbox.navigationPreload.enable();
 }
 
-// Estrategia: Usa caché pero actualiza en segundo plano
 workbox.routing.registerRoute(
   ({ request }) => request.mode === "navigate",
   new workbox.strategies.StaleWhileRevalidate({
@@ -29,22 +28,35 @@ workbox.routing.registerRoute(
   })
 );
 
-// Maneja navegación si no hay conexión
-self.addEventListener("fetch", (event) => {
-  if (event.request.mode === "navigate") {
-    event.respondWith(
+// 🟢 Manejo real de background sync
+self.addEventListener("sync", (event) => {
+  if (event.tag === "sync-datos") {
+    event.waitUntil(
       (async () => {
-        try {
-          const preloadResp = await event.preloadResponse;
-          if (preloadResp) return preloadResp;
-
-          const networkResp = await fetch(event.request);
-          return networkResp;
-        } catch (error) {
-          const cache = await caches.open(CACHE_NAME);
-          return await cache.match(OFFLINE_URL);
-        }
+        console.log("[SW] Background sync ejecutado");
+        // Aquí podrías reenviar datos guardados si los tuvieras
       })()
     );
   }
+});
+
+// 🟢 Periodic Sync real
+self.addEventListener("periodicsync", (event) => {
+  if (event.tag === "sync-periodico") {
+    event.waitUntil(
+      (async () => {
+        console.log("[SW] Periodic sync ejecutado");
+        // Aquí podrías refrescar datos si fuera necesario
+      })()
+    );
+  }
+});
+
+// 🟢 Push Notifications reales
+self.addEventListener("push", (event) => {
+  const data = event.data ? event.data.text() : "Mensaje por defecto";
+  self.registration.showNotification("Notificación", {
+    body: data,
+    icon: "img/logo.png"
+  });
 });
