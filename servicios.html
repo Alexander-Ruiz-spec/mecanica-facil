@@ -3,11 +3,264 @@
 
 <head>
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="css/mec-fac-bat.css">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Afinación - Mecánica Fácil</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset base */
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Cabecera */
+.cabecera {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+#logo {
+    position: absolute;
+    left: 20px;
+    height: 75px;
+    width: auto;
+}
+
+@media (max-width: 500px) {
+    #logo {
+        display: none;
+    }
+}
+
+#titulo {
+    text-align: center;
+    font-size: 3rem;
+    margin: 0;
+}
+
+.contenedor-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto 20px auto;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+
+.P-b {
+    flex: 1;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.titulo-bateria,
+.titulo-solucion {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.texto-bateria,
+.texto-solucion {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Imagen a la derecha */
+.imagen {
+    width: 250px;
+    height: 250px;
+    border: 1px solid white;
+    display: block;
+    margin: 0;
+}
+
+/* Solución rápida */
+.solucion-rapida {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Video links */
+.VIDEOS {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.VIDEOS h1 {
+    font-size: 1.8rem;
+}
+
+.VIDEOS a {
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+}
+
+.VIDEOS a:hover {
+    color: #f1c40f;
+}
+
+.VIDEOS iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+}
+
+/* Separador lateral fijo */
+#hr-anuncio {
+    position: fixed;
+    top: 90px;
+    left: 15%;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+    z-index: 1;
+}
+
+.hr-anuncio1 {
+    position: absolute;
+    left: 10%;
+    height: 200%;
+    margin-top: .5%;
+}
+
+/* F1 coche */
+#coche {
+    position: fixed;
+    bottom: 50px;
+    left: 0%;
+    width: 190px;
+    z-index: 1000;
+    transition: transform 1s ease-in-out;
+    display: none;
+}
+
+#coche img {
+    width: 100%;
+}
+
+/* RESPONSIVE: pantallas pequeñas */
+@media (max-width: 1500px) {
+    #titulo {
+        font-size: 2rem;
+    }
+
+    .titulo-bateria,
+    .titulo-solucion {
+        font-size: 1.5rem;
+    }
+
+    .texto-bateria,
+    .texto-solucion {
+        font-size: 1rem;
+    }
+
+    .imagen {
+        width: 180px;
+        height: 180px;
+    }
+
+    #coche {
+        display: none;
+    }
+
+    #f1i {
+        display: none;
+    }
+
+    .contenedor-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hr-anuncio1 {
+        display: none;
+    }
+}
+
+/* Animación de entrada suave */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contenedor-flex {
+    animation: fadeInUp 1s ease both;
+}
+
+/* También puedes animar individualmente si quieres más control */
+.solucion-rapida,
+.VIDEOS {
+    animation: fadeInUp 1s ease both;
+}
+
+.boton-regreso {
+    background: linear-gradient(135deg, white, grey);
+    color: black;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    left: 50%;
+}
+
+.boton-regreso::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    transform: skewX(-20deg);
+    transition: 0.5s;
+}
+
+.boton-regreso:hover::before {
+    left: 100%;
+}
+
+.boton-regreso:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+    </style>
 </head>
 
 <body>
