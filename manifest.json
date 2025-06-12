@@ -11,32 +11,32 @@
   "dir": "auto",
   "icons": [
     {
-      "src": "img/logo.png",
+      "src": "img/logof.jpeg",
       "sizes": "72x72",
       "type": "image/png"
     },
     {
-      "src": "img/logo.png",
+      "src": "img/logof.jpeg",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "img/logo.png",
+      "src": "img/logof.jpeg",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "img/logo.png",
+      "src": "img/logof.jpeg",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "img/logo.png",
+      "src": "img/logof.jpeg",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "img/logo.png",
+      "src": "img/logof.jpeg",
       "sizes": "512x512",
       "type": "image/png"
     }
