@@ -74,7 +74,6 @@
       margin: 10px 0;
     }
 
-    /* Estilo menú desplegable */
     .accordion {
       width: 100%;
       max-width: 900px;
@@ -87,6 +86,7 @@
       border-radius: 10px;
       overflow: hidden;
       border: 1px solid #555;
+      transition: all 0.3s ease;
     }
 
     .accordion-header {
@@ -103,11 +103,18 @@
     }
 
     .accordion-content {
-      padding: 15px 20px;
-      display: none;
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      background-color: #111;
       font-size: 1rem;
       line-height: 1.6;
-      background-color: #111;
+      transition: max-height 0.4s ease;
+    }
+
+    .accordion-item.active .accordion-content {
+      padding: 15px 20px;
+      max-height: 1000px; /* lo suficientemente grande para cualquier contenido */
     }
 
     .boton-regreso {
@@ -140,15 +147,13 @@
   <div class="contenedor-flex">
     <div class="P-b">
       <h1 class="titulo-bateria">PROBLEMAS PRINCIPALES...</h1>
- Los principales problemas de la batería de un vehículo pueden ser causados por varios factores. A continuación,
-        te
-        presento algunos de los más comunes:
+      <p>
+        Los principales problemas de la batería de un vehículo pueden ser causados por varios factores. A continuación,
+        te presento algunos de los más comunes:
         <br>- CONEXIONES DEFECTUOSAS: Los tornillos o pernos que conectan los puertos de la batería con los cables
-        pueden
-        aflojarse, rompiendo la conexión y evitando que el vehículo arranque.
+        pueden aflojarse, rompiendo la conexión y evitando que el vehículo arranque.
         <br>- CORROCIÓN DE TERMINALES: La corrosión en los puertos de la batería puede generar una mala conexión y
-        reducir
-        la cantidad de corriente eléctrica que llega al motor.
+        reducir la cantidad de corriente eléctrica que llega al motor.
         <br>- DESUSO: Dejar el vehículo inactivo durante un largo período puede hacer que la batería pierda energía y no
         pueda arrancar el motor.
         <br>- PROBLEMAS DEL ALTERNADOR: Si el alternador no funciona correctamente, no podrá recargar la batería, lo que
@@ -165,7 +170,8 @@
       <h1 class="titulo-solucion">MENÚ DE PROBLEMAS COMUNES Y SOLUCIONES</h1>
       <div class="accordion">
 
-        <!-- Problema 1 -->
+        <!-- Problemas 1 al 10 -->
+        <!-- Solo te muestro uno como ejemplo; los demás siguen el mismo formato -->
         <div class="accordion-item">
           <div class="accordion-header">1. Conexiones sueltas o mal ajustadas</div>
           <div class="accordion-content">
@@ -178,8 +184,7 @@
           </div>
         </div>
 
-        <!-- Problema 2 -->
-        <div class="accordion-item">
+         <div class="accordion-item">
           <div class="accordion-header">2. Terminales corroídos</div>
           <div class="accordion-content">
             <ol>
@@ -295,10 +300,10 @@
 
   <script>
     const items = document.querySelectorAll('.accordion-header');
-    items.forEach(item => {
-      item.addEventListener('click', () => {
-        const content = item.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    items.forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        item.classList.toggle('active');
       });
     });
   </script>
