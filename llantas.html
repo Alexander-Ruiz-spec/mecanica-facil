@@ -2,15 +2,13 @@
 <html lang="es">
 
 <head>
-    <link rel="manifest" href="manifest.json">
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLANTAS - Mecanica Facil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        /* Reset base */
-body {
+  <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Llantas - Mecánica Fácil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+   body {
     background-color: black;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -97,45 +95,13 @@ body {
     box-sizing: border-box;
 }
 
-/* Video links */
-.VIDEOS {
-    width: 90%;
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.VIDEOS h1 {
-    font-size: 1.8rem;
-}
-
-.VIDEOS a {
-    font-size: 1.2rem;
-    color: white;
-    text-decoration: none;
-}
-
-.VIDEOS a:hover {
-    color: #f1c40f;
-}
-
-.VIDEOS iframe {
-    width: 100%;
-    height: 400px;
-    border: none;
-}
-
 /* Separador lateral fijo */
 #hr-anuncio {
     position: fixed;
     top: 90px;
     left: 15%;
     width: 1px;
-    height: 100%;
+    height: 50%;
     background-color: white;
     z-index: 1;
 }
@@ -225,120 +191,150 @@ body {
 }
 
 .boton-regreso {
-    background: linear-gradient(135deg, white, grey);
-    color: black;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: none;
-    border-radius: 50px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
+      background: linear-gradient(135deg, white, grey);
+      color: black;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 30px auto;
+      display: block;
+    }
+
+    .boton-regreso:hover {
+      background: linear-gradient(135deg, grey, white);
+      transform: scale(1.05);
+    }
+    .acordeon {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.acordeon-item {
+    background-color: #222;
+    margin-bottom: 10px;
+    border-radius: 10px;
     overflow: hidden;
-    left: 50%;
+    border: 1px solid white;
 }
 
-.boton-regreso::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-    transform: skewX(-20deg);
-    transition: 0.5s;
+.acordeon-titulo {
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #333;
+    transition: background 0.3s ease;
 }
 
-.boton-regreso:hover::before {
-    left: 100%;
+.acordeon-titulo:hover {
+    background-color: #444;
 }
 
-.boton-regreso:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+.acordeon-contenido {
+    padding: 0 20px 15px 20px;
+    display: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #111;
+    animation: fadeInUp 0.5s ease;
 }
-    </style>
+  </style>
 </head>
 
 <body>
-    <div class="cabecera">
-        <img id="logo" src="img/logo.png" alt="Logo">
-        <h1 id="titulo">Mecanica Facil</h1>
+  <div class="cabecera">
+    <img id="logo" src="img/logo.png" alt="Logo">
+    <h1 id="titulo">Mecánica Fácil</h1>
+  </div>
+  <hr style="width: 100%;">
+
+  <div class="contenedor-flex">
+    <div class="P-b">
+      <h1 class="titulo-bateria">PROBLEMAS PRINCIPALES...</h1>
+      <p class="texto-bateria">
+        Las llantas son uno de los elementos más importantes para la seguridad y el rendimiento del vehículo. Estos son los problemas más comunes relacionados con ellas:
+        <br>- <strong>Baja presión:</strong> Puede causar desgaste irregular, pérdida de control y mayor consumo de combustible.
+        <br>- <strong>Desgaste excesivo:</strong> Disminuye la tracción y aumenta el riesgo de reventones.
+        <br>- <strong>Golpes o abultamientos:</strong> Son señales de daño interno, lo cual puede ser muy peligroso.
+        <br>- <strong>Desalineación o balanceo incorrecto:</strong> Produce vibraciones al conducir y desgaste desigual.
+      </p>
     </div>
 
-    <hr class="hr-anuncio1">
-    <hr style="width: 100%;">
+    <img class="imagen" src="img/llantas.png" alt="llantas">
+  </div>
 
-    <div class="contenedor-flex">
-        <div class="P-b">
-            <h1 class="titulo-bateria">PROBLEMAS PRINCIPALES...</h1>
-            <p class="texto-bateria">
-                La presión recomendada de las llantas de un vehículo se puede encontrar en el manual del propietario o
-                en la calcomanía que está en el marco de la puerta del conductor. .
-                <br><br>
-                Para corroborar la profundidad de los surcos de las llantas y su desgaste, existen medidores de
-                profundidad, que funcionan como un bolígrafo que indica la distancia al límite, que además marcan, por
-                medio de colores, qué tan segura es la rueda.
-                <br><br>
-                La presión de las llantas es un tema que muchos pasan por alto. ¿Cuántas veces no hemos escuchado la
-                frase "30 parejo" sin importar que sea un auto deportivo o un SUV? Muchas seguramente, sin embargo, el
-                mantenerla en niveles correctos puede ayudarnos a consumir menos combustible, a tener mejor agarre y a
-                ahorrar al no tener que cambiar antes de tiempo las llantas.
-                <br><br>
-                Una llanta bien inflada siempre será mejor en todo sentido. La norma es al menos revisar la presión una
-                vez por mes y también verificar que la llanta no tenga algún objeto enterrado.
-            </p>
-        </div>
-
-        <img class="imagen" src="img/LLANTA.webp" alt="no cargo">
+  <div class="acordeon">
+    <div class="acordeon-item">
+      <div class="acordeon-titulo">¿Qué hacer si una llanta tiene baja presión?</div>
+      <div class="acordeon-contenido">
+        <li>Verifica la presión con un manómetro.</li>
+        <li>Infla la llanta al nivel recomendado (indicado en el marco de la puerta del conductor).</li>
+        <li>Si pierde aire frecuentemente, revisa si hay un clavo o fuga. Acude a una vulcanizadora.</li>
+      </div>
     </div>
 
-    <div class="contenedor-flex">
-        <div class="solucion-rapida">
-            <h1 class="titulo-solucion">COMO SOLUCIONARLO</h1>
-            <p class="texto-solucion">
-                ¿Cómo se checan los niveles de las llantas?
-                <br><br>
-                Inflar la llanta a la presión recomendada que se encuentra en el letrero de la puerta debería hacer que
-                la luz se apague. Recuerde que una o más de las llantas pueden tener baja presión, por lo que siempre
-                debe verificar la presión en todas sus llantas.
-            </p>
-        </div>
+    <div class="acordeon-item">
+      <div class="acordeon-titulo">¿Qué hacer si la llanta está desgastada?</div>
+      <div class="acordeon-contenido">
+        <li>Revisa el dibujo o profundidad del labrado (usa una moneda si no tienes medidor).</li>
+        <li>Si está muy lisa o hay desgaste irregular, cámbiala de inmediato.</li>
+        <li>Haz rotación y alineación cada 10,000 km para prolongar su vida útil.</li>
+      </div>
     </div>
 
-    <div class="contenedor-flex">
-        <div class="VIDEOS">
-            <h1>VIDEO DE COMO SOLUCIONARLO</h1>
-            <a href="https://youtu.be/sCuZ-M603tQ?si=zXWZlN-scDLpcSsF" target="_blank">Cómo medir la presión de las
-                llantas (manómetro)</a>
-            <iframe src="https://www.youtube.com/embed/sCuZ-M603tQ" allowfullscreen></iframe>
-        </div>
+    <div class="acordeon-item">
+      <div class="acordeon-titulo">¿Qué hacer si la llanta tiene un golpe o abultamiento?</div>
+      <div class="acordeon-contenido">
+        <li>No sigas conduciendo: es peligroso y puede explotar.</li>
+        <li>Acude con un especialista para valoración.</li>
+        <li>Lo más probable es que deba cambiarse la llanta afectada.</li>
+      </div>
     </div>
 
-    <!-- 🚗 F1 Coche animación -->
-    <div id="coche">
-        <img src="img/f1.png" alt="Formula 1">
+    <div class="acordeon-item">
+      <div class="acordeon-titulo">¿Qué hacer si el auto vibra al conducir?</div>
+      <div class="acordeon-contenido">
+        <li>Podría ser falta de balanceo o alineación.</li>
+        <li>Llévalo a un taller para revisar y ajustar el balanceo de llantas y dirección.</li>
+        <li>Verifica también que no haya llantas deformadas.</li>
+      </div>
     </div>
+  </div>
 
-    <script>
-        window.addEventListener('load', () => {
-            const coche = document.getElementById('coche');
-            coche.style.display = 'block';
+  <!-- 🚗 F1 Coche animación -->
+  <div id="coche">
+    <img src="img/f1.png" alt="Formula 1">
+  </div>
 
-            setTimeout(() => {
-                coche.style.transform = 'translateX(25vw)';
-            }, 300);
+  <script>
+    window.addEventListener('load', () => {
+      const coche = document.getElementById('coche');
+      coche.style.display = 'block';
 
-            setTimeout(() => {
-                coche.style.transform = 'translateX(0vw)';
-            }, 1300);
-        });
-    </script>
+      setTimeout(() => {
+        coche.style.transform = 'translateX(25vw)';
+      }, 300);
 
-    <a href="index.html"><button class="boton-regreso">Regresar</button></a>
+      setTimeout(() => {
+        coche.style.transform = 'translateX(0vw)';
+      }, 1300);
+    });
+
+    const titulos = document.querySelectorAll('.acordeon-titulo');
+    titulos.forEach(titulo => {
+      titulo.addEventListener('click', () => {
+        const contenido = titulo.nextElementSibling;
+        const visible = contenido.style.display === 'block';
+        document.querySelectorAll('.acordeon-contenido').forEach(c => c.style.display = 'none');
+        contenido.style.display = visible ? 'none' : 'block';
+      });
+    });
+  </script>
+
+  <a href="index.html"><button class="boton-regreso">Regresar</button></a>
 </body>
 
 </html>
