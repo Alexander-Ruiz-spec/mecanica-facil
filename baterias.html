@@ -1,281 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Batería - Mecanica Facil</title>
+  <title>Batería - Mecánica Fácil</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<style>
-    /* Reset base */
-body {
-    background-color: black;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-/* Cabecera */
-.cabecera {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
-    position: relative;
-}
-
-#logo {
-    position: absolute;
-    left: 20px;
-    height: 75px;
-    width: auto;
-}
-
-@media (max-width: 500px) {
-    #logo {
-        display: none;
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
     }
-}
 
-#titulo {
-    text-align: center;
-    font-size: 3rem;
-    margin: 0;
-}
+    .cabecera {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      position: relative;
+    }
 
-.contenedor-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto 20px auto;
-    padding: 20px 10px;
-    box-sizing: border-box;
-    gap: 20px;
-}
+    #logo {
+      position: absolute;
+      left: 20px;
+      height: 75px;
+    }
 
+    @media (max-width: 500px) {
+      #logo {
+        display: none;
+      }
+    }
 
-.P-b {
-    flex: 1;
-    padding-left: 0;
-    margin-left: 0;
-}
-
-.titulo-bateria,
-.titulo-solucion {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.texto-bateria,
-.texto-solucion {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-/* Imagen a la derecha */
-.imagen {
-    width: 250px;
-    height: 250px;
-    border: 1px solid white;
-    display: block;
-    margin: 0;
-}
-
-/* Solución rápida */
-.solucion-rapida {
-    width: 90%;
-    max-width: 900px;
-    margin: 0 auto 30px auto;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-/* Video links */
-.VIDEOS {
-    width: 90%;
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.VIDEOS h1 {
-    font-size: 1.8rem;
-}
-
-.VIDEOS a {
-    font-size: 1.2rem;
-    color: white;
-    text-decoration: none;
-}
-
-.VIDEOS a:hover {
-    color: #f1c40f;
-}
-
-.VIDEOS iframe {
-    width: 100%;
-    height: 400px;
-    border: none;
-}
-
-/* Separador lateral fijo */
-#hr-anuncio {
-    position: fixed;
-    top: 90px;
-    left: 15%;
-    width: 1px;
-    height: 100%;
-    background-color: white;
-    z-index: 1;
-}
-
-.hr-anuncio1 {
-    position: absolute;
-    left: 10%;
-    height: 200%;
-    margin-top: .5%;
-}
-
-/* F1 coche */
-#coche {
-    position: fixed;
-    bottom: 50px;
-    left: 0%;
-    width: 190px;
-    z-index: 1000;
-    transition: transform 1s ease-in-out;
-    display: none;
-}
-
-#coche img {
-    width: 100%;
-}
-
-/* RESPONSIVE: pantallas pequeñas */
-@media (max-width: 1500px) {
     #titulo {
-        font-size: 2rem;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .contenedor-flex {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      margin: 0 auto 20px auto;
+    }
+
+    .P-b,
+    .solucion-rapida {
+      width: 100%;
+      max-width: 900px;
+      margin: 20px 0;
     }
 
     .titulo-bateria,
     .titulo-solucion {
-        font-size: 1.5rem;
+      font-size: 2rem;
     }
 
     .texto-bateria,
     .texto-solucion {
-        font-size: 1rem;
+      font-size: 1.2rem;
+      line-height: 1.6;
     }
 
     .imagen {
-        width: 180px;
-        height: 180px;
+      width: 250px;
+      height: 250px;
+      border: 1px solid white;
+      margin: 10px 0;
     }
 
-    #coche {
-        display: none;
+    /* Estilo menú desplegable */
+    .accordion {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    #f1i {
-        display: none;
+    .accordion-item {
+      background-color: #222;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #555;
     }
 
-    .contenedor-flex {
-        flex-direction: column;
-        align-items: center;
+    .accordion-header {
+      background-color: #333;
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: background 0.3s;
     }
 
-    .hr-anuncio1 {
-        display: none;
-    }
-}
-
-/* Animación de entrada suave */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    .accordion-header:hover {
+      background-color: #444;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .accordion-content {
+      padding: 15px 20px;
+      display: none;
+      font-size: 1rem;
+      line-height: 1.6;
+      background-color: #111;
     }
-}
 
-.contenedor-flex {
-    animation: fadeInUp 1s ease both;
-}
+    .boton-regreso {
+      background: linear-gradient(135deg, white, grey);
+      color: black;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 30px auto;
+      display: block;
+    }
 
-/* También puedes animar individualmente si quieres más control */
-.solucion-rapida,
-.VIDEOS {
-    animation: fadeInUp 1s ease both;
-}
-
-.boton-regreso {
-    background: linear-gradient(135deg, white, grey);
-    color: black;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: none;
-    border-radius: 50px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    left: 50%;
-}
-
-.boton-regreso::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-    transform: skewX(-20deg);
-    transition: 0.5s;
-}
-
-.boton-regreso:hover::before {
-    left: 100%;
-}
-
-.boton-regreso:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-</style>
+    .boton-regreso:hover {
+      background: linear-gradient(135deg, grey, white);
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 
 <body>
   <div class="cabecera">
     <img id="logo" src="img/logo.png" alt="Logo">
-    <h1 id="titulo">Mecanica Facil</h1>
+    <h1 id="titulo">Mecánica Fácil</h1>
   </div>
 
-  <hr class="hr-anuncio1">
   <hr style="width: 100%;">
 
   <div class="contenedor-flex">
     <div class="P-b">
       <h1 class="titulo-bateria">PROBLEMAS PRINCIPALES...</h1>
-      <p class="texto-bateria">
-        Los principales problemas de la batería de un vehículo pueden ser causados por varios factores. A continuación,
+ Los principales problemas de la batería de un vehículo pueden ser causados por varios factores. A continuación,
         te
         presento algunos de los más comunes:
         <br>- CONEXIONES DEFECTUOSAS: Los tornillos o pernos que conectan los puertos de la batería con los cables
@@ -293,58 +158,150 @@ body {
         <br>- FALTA DE MANTENIMIENTO: No realizar el mantenimiento adecuado de la batería puede aumentar el riesgo de
         fallos y reducir su vida útil.
       </p>
+      <img class="imagen" src="img/C.jpg" alt="No Carga">
     </div>
 
-    <img class="imagen" src="img/C.jpg" alt="NO CARGO">
-  </div>
-
-  <div class="contenedor-flex">
     <div class="solucion-rapida">
-      <h1 class="titulo-solucion">SOLUCIONES RAPIDAS</h1>
-      <p class="texto-solucion">
-        Aquí les presento una solución rápida y resumida para los problemas de batería de un vehículo:
-        <br>- REVISAR LAS CONEXIONES: Asegúrate de que los tornillos o pernos que conectan los puertos de la batería con
-        los cables estén bien apretados.
-        <br>- LIMPIA LOS TERMINALES: Limpia los puertos de la batería y los cables para eliminar la corrosión.
-        <br>- CARGAR LA BATERÍA: Si el vehículo ha estado inactivo durante un largo período, carga la batería con un
-        cargador de batería.
-        <br>- REVISAR EL ALTERNADOR: Asegúrate de que el alternador esté funcionando correctamente y recargando la
-        batería.
-        <br>- REEMPLAZAR LA BATERÍA: Si la batería es de baja calidad o tiene más de dos o tres años, considera
-        reemplazarla con una nueva.
-      </p>
+      <h1 class="titulo-solucion">MENÚ DE PROBLEMAS COMUNES Y SOLUCIONES</h1>
+      <div class="accordion">
+
+        <!-- Problema 1 -->
+        <div class="accordion-item">
+          <div class="accordion-header">1. Conexiones sueltas o mal ajustadas</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Abre el cofre del vehículo con el motor apagado.</li>
+              <li>Revisa que los cables de la batería estén bien conectados.</li>
+              <li>Aprieta los terminales con una llave si están flojos.</li>
+              <li>Evita forzarlos demasiado para no dañar los bornes.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Problema 2 -->
+        <div class="accordion-item">
+          <div class="accordion-header">2. Terminales corroídos</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Desconecta la batería (primero el negativo).</li>
+              <li>Usa un cepillo metálico o bicarbonato con agua para limpiar los bornes.</li>
+              <li>Seca bien antes de volver a conectar.</li>
+              <li>Aplica grasa dieléctrica si tienes, para prevenir corrosión.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Problema 3 -->
+        <div class="accordion-item">
+          <div class="accordion-header">3. Batería descargada por inactividad</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Conecta un cargador de batería al borne positivo y luego al negativo.</li>
+              <li>Deja cargando hasta que el indicador esté lleno.</li>
+              <li>Arranca el coche y conduce por al menos 30 minutos.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Problema 4 -->
+        <div class="accordion-item">
+          <div class="accordion-header">4. Alternador defectuoso</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Arranca el coche y enciende luces, aire, etc.</li>
+              <li>Si las luces bajan de intensidad, el alternador puede estar fallando.</li>
+              <li>Llévalo a revisión o prueba el voltaje con multímetro (debe dar 13.5 a 14.5 V).</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Problema 5 -->
+        <div class="accordion-item">
+          <div class="accordion-header">5. Batería vieja (más de 3 años)</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Verifica la fecha de fabricación (etiqueta en la batería).</li>
+              <li>Si tiene más de 3 años, considera cambiarla.</li>
+              <li>Adquiere una de la misma capacidad (CCA y Ah).</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Problema 6 -->
+        <div class="accordion-item">
+          <div class="accordion-header">6. Cortocircuito por instalación</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Desconecta accesorios eléctricos recién instalados.</li>
+              <li>Verifica si el problema desaparece.</li>
+              <li>Corrige el cableado o aísla las conexiones mal hechas.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Problema 7 -->
+        <div class="accordion-item">
+          <div class="accordion-header">7. Fugas de energía (consumo parásito)</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Con el coche apagado, usa un multímetro en modo amperímetro.</li>
+              <li>Coloca entre borne negativo y cable desconectado.</li>
+              <li>Si hay más de 50 mA, hay consumo parásito.</li>
+              <li>Desconecta fusibles uno a uno para ubicar la causa.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Problema 8 -->
+        <div class="accordion-item">
+          <div class="accordion-header">8. Mal contacto interno en la batería</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Si al golpear suavemente la batería arranca el coche, hay fallo interno.</li>
+              <li>No intentes abrirla, es mejor reemplazarla.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Problema 9 -->
+        <div class="accordion-item">
+          <div class="accordion-header">9. Sulfatación interna</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Es una capa blanca dentro de la batería.</li>
+              <li>No se puede eliminar fácilmente.</li>
+              <li>La solución es reemplazar la batería por una nueva.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Problema 10 -->
+        <div class="accordion-item">
+          <div class="accordion-header">10. Clima extremo (frío o calor)</div>
+          <div class="accordion-content">
+            <ol>
+              <li>En invierno usa batería con más CCA (arranque en frío).</li>
+              <li>En calor, asegúrate que esté bien ventilado el cofre.</li>
+              <li>Evita dejar luces encendidas o accesorios conectados cuando el coche esté apagado.</li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
-
-  <div class="contenedor-flex">
-    <div class="VIDEOS">
-      <h1>VIDEOS DE COMO HACERLO</h1>
-      <a href="https://youtu.be/DeSI567zt88?si=S1gLGSkfEyyfNGwN" target="_blank">Video de baterías</a>
-      <iframe src="https://www.youtube.com/embed/DeSI567zt88" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <!-- 🚗 F1 Coche animación -->
-  <div id="coche">
-    <img src="img/f1.png" alt="Formula 1">
-  </div>
+  <a href="index.html"><button class="boton-regreso">Regresar</button></a>
 
   <script>
-    window.addEventListener('load', () => {
-      const coche = document.getElementById('coche');
-      coche.style.display = 'block';
-
-      setTimeout(() => {
-        coche.style.transform = 'translateX(25vw)';
-      }, 300); // Empieza a moverse
-
-      setTimeout(() => {
-        coche.style.transform = 'translateX(0vw)'; // Rebote
-      }, 1300);
+    const items = document.querySelectorAll('.accordion-header');
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const content = item.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      });
     });
   </script>
-  <a href="index.html"><button class="boton-regreso">Regresar</button></a>
 </body>
 
 </html>
