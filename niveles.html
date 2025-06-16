@@ -260,6 +260,42 @@ body {
     transform: scale(1.05);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
+    .acordeon {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.acordeon-item {
+    background-color: #222;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid white;
+}
+
+.acordeon-titulo {
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #333;
+    transition: background 0.3s ease;
+}
+
+.acordeon-titulo:hover {
+    background-color: #444;
+}
+
+.acordeon-contenido {
+    padding: 0 20px 15px 20px;
+    display: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #111;
+    animation: fadeInUp 0.5s ease;
+}
+
 </style>
 </head>
 
@@ -290,22 +326,40 @@ body {
     <img class="imagen" src="img/niveles.png" alt="niveles">
   </div>
 
-  <div class="contenedor-flex">
-    <div class="solucion-rapida">
-      <h1 class="titulo-solucion">SOLUCIONES RÁPIDAS</h1>
-      <p class="texto-solucion">
-        Aquí te explicamos cómo revisar y mantener los niveles adecuados:
-        <br>- <strong>Aceite:</strong> Revisa con la varilla medidora con el motor frío y apagado. Cambia aceite y
-        filtro cada 5,000 a 10,000 km.
-        <br>- <strong>Líquido de frenos:</strong> Verifica el depósito en el motor (etiquetado como "brake fluid" o
-        "líquido de frenos"). Si baja con frecuencia, llévalo al taller.
-        <br>- <strong>Anticongelante:</strong> Revisa el depósito del radiador (nunca lo abras con el motor caliente).
-        Llena hasta la marca con anticongelante, no solo agua.
-        <br>- <strong>Gasolina:</strong> No esperes a la reserva. Llena cuando quede 1/4 de tanque. Si el auto falla
-        cuando está casi vacío, podría ser por suciedad en el tanque o la bomba de gasolina.
-      </p>
+<div class="acordeon">
+  <div class="acordeon-item">
+    <div class="acordeon-titulo">¿Qué hacer si el nivel de aceite está bajo?</div>
+    <div class="acordeon-contenido">
+      Verifica el nivel con la varilla. Si está bajo, agrega aceite del tipo recomendado por el fabricante.
+      Si el nivel baja frecuentemente, puede haber una fuga o el motor lo está quemando. Acude al taller.
     </div>
   </div>
+
+  <div class="acordeon-item">
+    <div class="acordeon-titulo">¿Qué hacer si el líquido de frenos está bajo?</div>
+    <div class="acordeon-contenido">
+      No manejes hasta revisarlo. Rellena solo con líquido de frenos del tipo correcto (DOT 3 o DOT 4).
+      Si baja seguido, hay una fuga en el sistema. Llévalo a revisión urgente.
+    </div>
+  </div>
+
+  <div class="acordeon-item">
+    <div class="acordeon-titulo">¿Qué hacer si el anticongelante está bajo?</div>
+    <div class="acordeon-contenido">
+      Con el motor frío, abre el depósito del radiador y rellena con anticongelante (no agua pura).
+      Nunca abras el radiador caliente. Si notas que baja seguido, puede haber fugas o un problema en el sistema de enfriamiento.
+    </div>
+  </div>
+
+  <div class="acordeon-item">
+    <div class="acordeon-titulo">¿Qué hacer si el nivel de gasolina es muy bajo o hay fallos?</div>
+    <div class="acordeon-contenido">
+      Evita andar siempre en reserva. Los residuos del tanque pueden llegar al motor.
+      Si el auto falla con poco combustible, revisa la bomba o filtros. Mantén siempre al menos 1/4 de tanque.
+    </div>
+  </div>
+</div>
+
 
   <div class="contenedor-flex">
     <div class="VIDEOS">
@@ -335,6 +389,18 @@ body {
       }, 1300);
     });
   </script>
+    <script>
+  const titulos = document.querySelectorAll('.acordeon-titulo');
+  titulos.forEach(titulo => {
+    titulo.addEventListener('click', () => {
+      const contenido = titulo.nextElementSibling;
+      const visible = contenido.style.display === 'block';
+      document.querySelectorAll('.acordeon-contenido').forEach(c => c.style.display = 'none');
+      contenido.style.display = visible ? 'none' : 'block';
+    });
+  });
+</script>
+
 
   <a href="index.html"><button class="boton-regreso">Regresar</button></a>
 </body>
