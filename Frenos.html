@@ -317,22 +317,10 @@ body {
     </div>
   </div>
 
-    <div id="coche">
-    <img src="f1.png" alt="Coche Fórmula 1 animado">
-  </div>
+  
   <button class="boton-regreso" onclick="window.history.back()">Regresar</button>
 
   <script>
-    // Animación del coche que aparece y se mueve
-    document.addEventListener("DOMContentLoaded", () => {
-      const coche = document.getElementById("coche");
-      if (window.innerWidth > 1500) {
-        coche.style.display = "block";
-        setTimeout(() => {
-          coche.style.transform = "translateX(150vw)";
-        }, 100);
-      }
-    });
 
     // Script acordeón
     const acordeonTitulos = document.querySelectorAll(".acordeon-titulo");
