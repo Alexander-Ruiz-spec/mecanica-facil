@@ -115,20 +115,6 @@ body {
     margin-top: .5%;
 }
 
-/* F1 coche */
-#coche {
-    position: fixed;
-    bottom: 50px;
-    left: 0%;
-    width: 190px;
-    z-index: 1000;
-    transition: transform 1s ease-in-out;
-    display: none;
-}
-
-#coche img {
-    width: 100%;
-}
 
 /* RESPONSIVE: pantallas pequeñas */
 @media (max-width: 1500px) {
@@ -249,7 +235,7 @@ body {
 
 <body>
   <div class="cabecera">
-    <img id="logo" src="img/logo.png" alt="Logo">
+    <img id="logo" src="logo.png" alt="Logo">
     <h1 id="titulo">Mecánica Fácil</h1>
   </div>
   <hr style="width: 100%;">
@@ -269,7 +255,7 @@ body {
       </p>
     </div>
 
-    <img class="imagen" src="img/niveles.png" alt="niveles">
+    <img class="imagen" src="niveles.png" alt="niveles">
   </div>
 
 <div class="acordeon">
@@ -309,25 +295,8 @@ body {
   </div>
 </div>
 
-  <!-- 🚗 F1 Coche animación -->
-  <div id="coche">
-    <img src="img/f1.png" alt="Formula 1">
-  </div>
 
-  <script>
-    window.addEventListener('load', () => {
-      const coche = document.getElementById('coche');
-      coche.style.display = 'block';
-
-      setTimeout(() => {
-        coche.style.transform = 'translateX(25vw)';
-      }, 300); // Empieza a moverse
-
-      setTimeout(() => {
-        coche.style.transform = 'translateX(0vw)'; // Rebote
-      }, 1300);
-    });
-  </script>
+ 
     <script>
   const titulos = document.querySelectorAll('.acordeon-titulo');
   titulos.forEach(titulo => {
