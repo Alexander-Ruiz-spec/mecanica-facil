@@ -224,41 +224,59 @@ body {
     animation: fadeInUp 1s ease both;
 }
 
+/* Nuevo estilo para el botón regresar */
 .boton-regreso {
-    background: linear-gradient(135deg, white, grey);
-    color: black;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: none;
-    border-radius: 50px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    left: 50%;
-}
-
-.boton-regreso::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-    transform: skewX(-20deg);
-    transition: 0.5s;
-}
-
-.boton-regreso:hover::before {
-    left: 100%;
-}
+      background: linear-gradient(135deg, white, grey);
+      color: black;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 30px auto;
+      display: block;
+    }
 
 .boton-regreso:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(135deg, grey, white);
+      transform: scale(1.05);
+    }
+
+/* Estilos para acordeón */
+.acordeon {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.acordeon-item {
+    background-color: #222;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid white;
+}
+
+.acordeon-titulo {
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #333;
+    transition: background 0.3s ease;
+}
+
+.acordeon-titulo:hover {
+    background-color: #444;
+}
+
+.acordeon-contenido {
+    padding: 0 20px 15px 20px;
+    display: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #111;
+    animation: fadeInUp 0.5s ease;
 }
     </style>
 </head>
@@ -275,14 +293,17 @@ body {
   <div class="contenedor-flex">
     <div class="P-b">
       <h1 class="titulo-bateria">PROBLEMAS PRINCIPALES...</h1>
-      <p class="texto-bateria">
-        Aquí te explicamos cómo saber si hay problemas con tus frenos:
-        <br>- Verifica el nivel del líquido de frenos con el auto frío. El depósito debe estar entre los indicadores de
-        “mínimo” y “máximo”.
-        <br>- Si el nivel está bajo, debes rellenarlo inmediatamente.
-        <br>- Antes de arrancar, pisa el pedal. No debe sentirse blando ni flojo.
-        <br>- Al probar los frenos en un lugar seguro, el coche debe frenar con rapidez y sin desviarse.
+     <p class="texto-bateria">
+        Los síntomas de un nivel bajo de líquidos en un vehículo pueden afectar su funcionamiento. A continuación,
+        algunos de los problemas más comunes:
+        <br>- <strong>Aceite bajo:</strong> Puede provocar sobrecalentamiento o daño en el motor.
+        <br>- <strong>Líquido de frenos bajo:</strong> El coche puede frenar con dificultad o el pedal sentirse suave.
+        Podría indicar una fuga.
+        <br>- <strong>Anticongelante bajo:</strong> El motor se calienta excesivamente y puede emitir vapor.
+        <br>- <strong>Combustible bajo:</strong> Muchos fallos o apagones del motor se deben simplemente a falta de
+        gasolina.
       </p>
+    </div>
     </div>
 
     <img class="imagen" src="img/balatas.jpg" alt="Problema de balatas o frenos">
@@ -313,22 +334,71 @@ body {
     <img src="img/f1.png" alt="Coche Fórmula 1 animado">
   </div>
 
+  <!-- Acordeón agregado -->
+  <div class="acordeon">
+    <div class="acordeon-item">
+      <div class="acordeon-titulo">¿Qué hacer si el nivel de aceite está bajo?</div>
+      <div class="acordeon-contenido">
+       <ul>
+         <li> Verifica el nivel con la varilla.</li> 
+         <li>Si está bajo, agrega aceite del tipo recomendado por el fabricante.</li>
+         <li> Si el nivel baja frecuentemente, puede haber una fuga o el motor lo está quemando. Acude al taller.</li>
+       </ul>
+      </div>
+    </div>
+
+    <div class="acordeon-item">
+      <div class="acordeon-titulo">¿Qué hacer si el líquido de frenos está bajo?</div>
+      <div class="acordeon-contenido">
+       <ul>
+         <li>No manejes hasta revisarlo.</li>
+         <li> Rellena solo con líquido de frenos del tipo correcto (DOT 3 o DOT 4).</li>
+         <li>Consulta al taller si baja frecuentemente, pues puede haber fugas.</li>
+       </ul>
+      </div>
+    </div>
+
+    <div class="acordeon-item">
+      <div class="acordeon-titulo">¿Cuándo revisar las pastillas de freno?</div>
+      <div class="acordeon-contenido">
+       <ul>
+         <li> Cuando escuches chirridos o vibraciones al frenar.</li>
+         <li> Cada 20,000 km o según recomendación del fabricante.</li>
+         <li> Al hacer una inspección visual en el taller.</li>
+       </ul>
+      </div>
+    </div>
+  </div>
+
+  <button class="boton-regreso" onclick="window.history.back()">Regresar</button>
+
   <script>
-    window.addEventListener('load', () => {
-      const coche = document.getElementById('coche');
-      coche.style.display = 'block';
+    // Animación del coche que aparece y se mueve
+    document.addEventListener("DOMContentLoaded", () => {
+      const coche = document.getElementById("coche");
+      if (window.innerWidth > 1500) {
+        coche.style.display = "block";
+        setTimeout(() => {
+          coche.style.transform = "translateX(150vw)";
+        }, 100);
+      }
+    });
 
-      setTimeout(() => {
-        coche.style.transform = 'translateX(25vw)';
-      }, 300);
-
-      setTimeout(() => {
-        coche.style.transform = 'translateX(0vw)';
-      }, 1300);
+    // Script acordeón
+    const acordeonTitulos = document.querySelectorAll(".acordeon-titulo");
+    acordeonTitulos.forEach(titulo => {
+      titulo.addEventListener("click", () => {
+        const contenido = titulo.nextElementSibling;
+        if (contenido.style.display === "block") {
+          contenido.style.display = "none";
+        } else {
+          // Cerrar todos los abiertos
+          document.querySelectorAll(".acordeon-contenido").forEach(c => c.style.display = "none");
+          contenido.style.display = "block";
+        }
+      });
     });
   </script>
-
-  <a href="index.html"><button class="boton-regreso">Regresar</button></a>
 </body>
 
 </html>
