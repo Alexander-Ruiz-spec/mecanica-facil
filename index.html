@@ -108,19 +108,6 @@ body {
     color: black;
 }
 
-/* COCHE F1 */
-#coche {
-    position: fixed;
-    bottom: 50px;
-    left: -200px;
-    width: 200px;
-    transition: transform 1.5s ease-in-out;
-    z-index: 999;
-}
-
-#coche img {
-    width: 100%;
-}
 
 @keyframes llevarPagina {
     0% {
@@ -265,7 +252,7 @@ body {
 
 <body>
     <div class="cabecera">
-        <img id="logo" src="img/logo.png" alt="Logo">
+        <img id="logo" src="logo.png" alt="Logo">
         <h1 id="titulo">Mecanica Facil</h1>
     </div>
 
@@ -273,13 +260,13 @@ body {
 
     <div class="anuncio-carrusel">
         <div class="anuncio-slide active">
-            <p>🔧 ¡Revisa tus frenos gratis!</p>
+            <p>🔧 ¿Conoces todo sobre tu coche?</p>
         </div>
         <div class="anuncio-slide">
-            <p>🛠️ 10% de descuento en baterías</p>
+            <p>🛠️ ¿Lo arreglamos?</p>
         </div>
         <div class="anuncio-slide">
-            <p>🚗 Cambio de aceite express</p>
+            <p>🚗 ¿Cambio de aceite express?</p>
         </div>
     </div>
 
@@ -288,30 +275,30 @@ body {
     <div class="p-b">
         <div class="botones">
             <div class="btn-contenedor">
-                <img src="img/bateria-i.png" alt="Baterías">
+                <img src="bateria-i.png" alt="Baterías">
                 <a href="baterias.html" class="btn-link"><button class="btns">Baterías</button></a>
             </div>
             <div class="btn-contenedor">
-                <img src="img/niveles.png" alt="Niveles">
+                <img src="niveles.png" alt="Niveles">
                 <a href="niveles.html" class="btn-link"><button class="btns">Niveles</button></a>
             </div>
             <div class="btn-contenedor">
-                <img src="img/llantas.png" alt="Llantas">
+                <img src="llantas.png" alt="Llantas">
                 <a href="llantas.html" class="btn-link"><button class="btns">Llantas</button></a>
             </div>
             <div class="btn-contenedor">
-                <img src="img/buj.png" alt="Servicios">
+                <img src="buj.png" alt="Servicios">
                 <a href="servicios.html" class="btn-link"><button class="btns">Servicios</button></a>
             </div>
             <div class="btn-contenedor">
-                <img src="img/frenos.png" alt="Frenos">
+                <img src="frenos.png" alt="Frenos">
                 <a href="Frenos.html" class="btn-link"><button class="btns">Frenos</button></a>
             </div>
         </div>
     </div>
     <div class="imagen-texto-contenedor">
         <div class="imagen-movible" id="imagen-movible">
-            <img src="img/logo.png" alt="Imagen Movible">
+            <img src="logo.png" alt="Imagen Movible">
         </div>
         <div class="texto-lateral">
             <p>Mecánica Fácil es una página web educativa y práctica diseñada para ayudar a personas sin conocimientos
@@ -328,33 +315,16 @@ body {
 
     <!-- Imagen de Tsuru -->
     <div id="tsuru">
-        <img src="img/tsurrari.png" alt="tsurrari">
+        <img src="tsurrari.png" alt="tsurrari">
     </div>
 
     <div id="peyot">
-        <img src="img/peyots.png" alt="peyots">
+        <img src="peyots.png" alt="peyots">
     </div>
 
-    <!-- Coche F1 -->
-    <div id="coche">
-        <img src="img/tsurrari.png" alt="Formula 1">
-    </div>
+    
 
     <script>
-        // Movimiento coche F1 + redirección animada
-        document.querySelectorAll(".btn-link").forEach(link => {
-            link.addEventListener("click", (e) => {
-                e.preventDefault();
-                const coche = document.getElementById("coche");
-                const body = document.body;
-
-                coche.style.transform = "translateX(120vw)";
-                setTimeout(() => {
-                    body.classList.add("salida");
-                    window.location.href = e.target.parentElement.href;
-                }, 1500);
-            });
-        });
 
         // Carrusel automático de anuncios
         const slides = document.querySelectorAll(".anuncio-slide");
