@@ -57,6 +57,6 @@ self.addEventListener("push", (event) => {
   const data = event.data ? event.data.text() : "Mensaje por defecto";
   self.registration.showNotification("Notificación", {
     body: data,
-    icon: "img/logo.png"
+    icon: "logo.png"
   });
 });
