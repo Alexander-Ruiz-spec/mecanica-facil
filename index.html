@@ -3,421 +3,433 @@
 
 <head>
   <link rel="manifest" href="manifest.json">
-<script src="service-worker.js"></script>
+  <script src="service-worker.js"></script>
 
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000000" />
-<meta name="mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-
-    <title>Mecanica Facil</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Mecanica Facil</title>
 
   <style>
     /* GENERAL */
-* {
-    box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-    background-color: black;
-    color: white;
-    font-family: Constantia, serif;
-    margin: 0;
-    padding: 0 10px;
-    overflow-x: hidden;
-}
+    body {
+      background-color: black;
+      color: white;
+      font-family: Constantia, serif;
+      margin: 0;
+      padding: 0 10px;
+      overflow-x: hidden;
+    }
 
-/* CABECERA */
-.cabecera {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
+    /* CABECERA */
+    .cabecera {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
 
-#logo {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 75px;
-    width: auto;
-}
-
-@media (max-width: 550px) {
     #logo {
-        display: none;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 75px;
+      width: auto;
     }
-}
 
-#titulo {
-    text-align: center;
-    font-size: 3rem;
-    color: white;
-    margin: 0;
-}
+    @media (max-width: 550px) {
+      #logo {
+        display: none;
+      }
+    }
 
-/* BOTONES PRINCIPALES */
-.p-b {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    margin-top: 15%;
-}
+    #titulo {
+      text-align: center;
+      font-size: 3rem;
+      color: white;
+      margin: 0;
+    }
 
-.botones {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 20px;
-}
+    /* BOTONES PRINCIPALES */
+    .p-b {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: auto;
+      margin-top: 15%;
+    }
 
-.btn-contenedor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
+    .botones {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 20px;
+    }
 
-.btn-contenedor img {
-    width: 130px;
-    height: 60px;
-    object-fit: contain;
-}
+    .btn-contenedor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
 
-.btns {
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    border: 1px solid white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s, color 0.3s;
-}
+    .btn-contenedor img {
+      width: 130px;
+      height: 60px;
+      object-fit: contain;
+    }
 
-.btns:hover {
-    background-color: white;
-    color: black;
-}
+    .btns {
+      padding: 10px 20px;
+      background-color: black;
+      color: white;
+      border: 1px solid white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
+    .btns:hover {
+      background-color: white;
+      color: black;
+    }
 
-@keyframes llevarPagina {
-    0% {
+    @keyframes llevarPagina {
+      0% {
         transform: translateX(0);
-    }
+      }
 
-    100% {
+      100% {
         transform: translateX(-100vw);
+      }
     }
-}
 
-.salida {
-    animation: llevarPagina 1.5s ease-in-out forwards;
-}
+    .salida {
+      animation: llevarPagina 1.5s ease-in-out forwards;
+    }
 
-/* ANUNCIO CARRUSEL */
-.anuncio-carrusel {
-    position: absolute;
-    top: 250px;
-    left: 1%;
-    width: 130px;
-    height: 300px;
-    overflow: hidden;
-    background-color: #222;
-    color: white;
-    border: 1px solid white;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    text-align: center;
-    z-index: 10;
-    font-size: 0.9rem;
-}
+    /* ANUNCIO CARRUSEL */
+    .anuncio-carrusel {
+      position: absolute;
+      top: 250px;
+      left: 1%;
+      width: 130px;
+      height: 300px;
+      overflow: hidden;
+      background-color: #222;
+      color: white;
+      border: 1px solid white;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      text-align: center;
+      z-index: 10;
+      font-size: 0.9rem;
+    }
 
-.anuncio-slide {
-    display: none;
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.5s ease-in-out;
-}
+    .anuncio-slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.5s ease-in-out;
+    }
 
-.anuncio-slide.active {
-    display: block;
-}
+    .anuncio-slide.active {
+      display: block;
+    }
 
-/* RESPONSIVE: OCULTAR ELEMENTOS EN PANTALLAS PEQUEÑAS */
-@media (max-width: 1500px) {
-    .anuncio-carrusel,
-    #tsuru,
-    #peyot,
-    #spark,
-    #text-container {
+    @media (max-width: 1500px) {
+      .anuncio-carrusel,
+      #tsuru,
+      #peyot,
+      #spark,
+      #text-container {
         display: none;
+      }
     }
-}
 
-/* VEHÍCULOS MOVIBLES */
-#tsuru,
-#peyot {
-    position: absolute;
-    top: 200px;
-    width: 150px;
-    cursor: grab;
-    transition: all 0.1s ease-in-out;
-    z-index: 20;
-}
+    #tsuru,
+    #peyot {
+      position: absolute;
+      top: 200px;
+      width: 150px;
+      cursor: grab;
+      transition: all 0.1s ease-in-out;
+      z-index: 20;
+    }
 
-#tsuru {
-    left: 1500px;
-}
+    #tsuru {
+      left: 1500px;
+    }
 
-#peyot {
-    left: 400px;
-    width: 100px;
-}
+    #peyot {
+      left: 400px;
+      width: 100px;
+    }
 
-#tsuru:active,
-#peyot:active {
-    cursor: grabbing;
-}
+    #tsuru:active,
+    #peyot:active {
+      cursor: grabbing;
+    }
 
-#tsuru img,
-#peyot img {
-    width: 100%;
-    height: auto;
-}
+    #tsuru img,
+    #peyot img {
+      width: 100%;
+      height: auto;
+    }
 
-/* CONTENEDOR DE IMAGEN Y TEXTO */
-.imagen-texto-contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 40px;
-    gap: 20px;
-    width: 90%;
-    max-width: 1000px;
-}
+    .imagen-texto-contenedor {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      gap: 20px;
+      width: 90%;
+      max-width: 1000px;
+    }
 
-/* IMAGEN MOVIBLE */
-.imagen-movible {
-    width: 200px;
-    cursor: grab;
-    position: relative;
-}
+    .imagen-movible {
+      width: 200px;
+      cursor: grab;
+      position: relative;
+    }
 
-.imagen-movible:active {
-    cursor: grabbing;
-}
+    .imagen-movible:active {
+      cursor: grabbing;
+    }
 
-.imagen-movible img {
-    width: 100%;
-    height: auto;
-    border: 2px solid white;
-    border-radius: 10px;
-}
+    .imagen-movible img {
+      width: 100%;
+      height: auto;
+      border: 2px solid white;
+      border-radius: 10px;
+    }
 
-/* TEXTO */
-.texto-lateral {
-    max-width: 400px;
-    color: white;
-    font-size: 1.1rem;
-}
+    .texto-lateral {
+      max-width: 400px;
+      color: white;
+      font-size: 1.1rem;
+    }
 
-/* RESPONSIVE PARA TELÉFONOS */
-@media screen and (max-width: 768px) {
-    .text-container {
+    @media screen and (max-width: 768px) {
+      .text-container {
         flex-direction: column;
         align-items: center;
         gap: 15px;
+      }
+
+      .left-text,
+      .right-text {
+        width: 100%;
+      }
     }
 
-    .left-text,
-    .right-text {
-        width: 100%;
-    }
+    /* ESTILO PARA TEXTO ANIMADO */
+    .texto-animado {
+      white-space: pre-line;
+      overflow: hidden;
     }
   </style>
 </head>
 
 <body>
-    <div class="cabecera">
-        <img id="logo" src="logo.png" alt="Logo">
-        <h1 id="titulo">Mecanica Facil</h1>
+  <div class="cabecera">
+    <img id="logo" src="logo.png" alt="Logo">
+    <h1 id="titulo">Mecanica Facil</h1>
+  </div>
+
+  <div class="anuncio-carrusel">
+    <div class="anuncio-slide active">
+      <p>🔧 ¿Conoces todo sobre tu coche?</p>
     </div>
-
-    
-
-    <div class="anuncio-carrusel">
-        <div class="anuncio-slide active">
-            <p>🔧 ¿Conoces todo sobre tu coche?</p>
-        </div>
-        <div class="anuncio-slide">
-            <p>🛠️ ¿Lo arreglamos?</p>
-        </div>
-        <div class="anuncio-slide">
-            <p>🚗 ¿Cambio de aceite express?</p>
-        </div>
+    <div class="anuncio-slide">
+      <p>🛠️ ¿Lo arreglamos?</p>
     </div>
-
-    <hr style="width: 100%;">
-
-    <div class="p-b">
-        <div class="botones">
-            <div class="btn-contenedor">
-                <img src="bateria-i.png" alt="Baterías">
-                <a href="baterias.html" class="btn-link"><button class="btns">Baterías</button></a>
-            </div>
-            <div class="btn-contenedor">
-                <img src="niveles.png" alt="Niveles">
-                <a href="niveles.html" class="btn-link"><button class="btns">Niveles</button></a>
-            </div>
-            <div class="btn-contenedor">
-                <img src="llantas.png" alt="Llantas">
-                <a href="llantas.html" class="btn-link"><button class="btns">Llantas</button></a>
-            </div>
-            <div class="btn-contenedor">
-                <img src="buj.png" alt="Servicios">
-                <a href="servicios.html" class="btn-link"><button class="btns">Servicios</button></a>
-            </div>
-            <div class="btn-contenedor">
-                <img src="frenos.png" alt="Frenos">
-                <a href="Frenos.html" class="btn-link"><button class="btns">Frenos</button></a>
-            </div>
-        </div>
+    <div class="anuncio-slide">
+      <p>🚗 ¿Cambio de aceite express?</p>
     </div>
-    <div class="imagen-texto-contenedor">
-        <div class="imagen-movible" id="imagen-movible">
-            <img src="logo.png" alt="Imagen Movible">
-        </div>
-        <div class="texto-lateral">
-            <p>Mecánica Fácil es una página web educativa y práctica diseñada para ayudar a personas sin conocimientos
-                técnicos a entender y resolver problemas comunes en sus vehículos. Su objetivo principal es acercar la
-                mecánica automotriz al usuario promedio, brindando información clara, visual y accesible para que
-                cualquiera pueda aprender a identificar, prevenir y solucionar fallas sencillas en su auto.
+  </div>
 
-                La plataforma está pensada especialmente para quienes desean ahorrar dinero en reparaciones básicas,
-                ganar autonomía o simplemente entender mejor cómo funciona su vehículo. </p>
-        </div>
+  <hr style="width: 100%;">
+
+  <div class="p-b">
+    <div class="botones">
+      <div class="btn-contenedor">
+        <img src="bateria-i.png" alt="Baterías">
+        <a href="baterias.html" class="btn-link"><button class="btns">Baterías</button></a>
+      </div>
+      <div class="btn-contenedor">
+        <img src="niveles.png" alt="Niveles">
+        <a href="niveles.html" class="btn-link"><button class="btns">Niveles</button></a>
+      </div>
+      <div class="btn-contenedor">
+        <img src="llantas.png" alt="Llantas">
+        <a href="llantas.html" class="btn-link"><button class="btns">Llantas</button></a>
+      </div>
+      <div class="btn-contenedor">
+        <img src="buj.png" alt="Servicios">
+        <a href="servicios.html" class="btn-link"><button class="btns">Servicios</button></a>
+      </div>
+      <div class="btn-contenedor">
+        <img src="frenos.png" alt="Frenos">
+        <a href="Frenos.html" class="btn-link"><button class="btns">Frenos</button></a>
+      </div>
     </div>
+  </div>
 
-
-
-    <!-- Imagen de Tsuru -->
-    <div id="tsuru">
-        <img src="tsurrari.png" alt="tsurrari">
+  <div class="imagen-texto-contenedor">
+    <div class="imagen-movible" id="imagen-movible">
+      <img src="logo.png" alt="Imagen Movible">
     </div>
+    <div class="texto-lateral texto-animado"></div>
+  </div>
 
-    <div id="peyot">
-        <img src="peyots.png" alt="peyots">
-    </div>
+  <!-- Puedes duplicar este bloque si quieres más textos animados -->
+  <p class="texto-animado"></p>
+  <p class="texto-animado"></p>
+  <p class="texto-animado"></p>
+  <p class="texto-animado"></p>
+  <p class="texto-animado"></p>
 
-    
+  <div id="tsuru">
+    <img src="tsurrari.png" alt="tsurrari">
+  </div>
 
-    <script>
+  <div id="peyot">
+    <img src="peyots.png" alt="peyots">
+  </div>
 
-        // Carrusel automático de anuncios
-        const slides = document.querySelectorAll(".anuncio-slide");
-        let currentIndex = 0;
-        setInterval(() => {
-            slides[currentIndex].classList.remove("active");
-            currentIndex = (currentIndex + 1) % slides.length;
-            slides[currentIndex].classList.add("active");
-        }, 4000);
+  <script>
+    // Carrusel automático de anuncios
+    const slides = document.querySelectorAll(".anuncio-slide");
+    let currentIndex = 0;
+    setInterval(() => {
+      slides[currentIndex].classList.remove("active");
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add("active");
+    }, 4000);
 
-        // Función genérica para mover cualquier coche
-        function hacerMovible(elemento) {
-            let isDragging = false;
-            let offsetX = 0;
-            let offsetY = 0;
+    // Función genérica para mover cualquier coche
+    function hacerMovible(elemento) {
+      let isDragging = false;
+      let offsetX = 0;
+      let offsetY = 0;
 
-            elemento.addEventListener("mousedown", function (e) {
-                isDragging = true;
-                offsetX = e.clientX - elemento.offsetLeft;
-                offsetY = e.clientY - elemento.offsetTop;
-            });
+      elemento.addEventListener("mousedown", function (e) {
+        isDragging = true;
+        offsetX = e.clientX - elemento.offsetLeft;
+        offsetY = e.clientY - elemento.offsetTop;
+      });
 
-            document.addEventListener("mousemove", function (e) {
-                if (isDragging) {
-                    elemento.style.left = (e.clientX - offsetX) + "px";
-                    elemento.style.top = (e.clientY - offsetY) + "px";
-                }
-            });
+      document.addEventListener("mousemove", function (e) {
+        if (isDragging) {
+          elemento.style.left = (e.clientX - offsetX) + "px";
+          elemento.style.top = (e.clientY - offsetY) + "px";
+        }
+      });
 
-            document.addEventListener("mouseup", function () {
-                isDragging = false;
-            });
+      document.addEventListener("mouseup", function () {
+        isDragging = false;
+      });
+    }
+
+    const tsuru = document.getElementById("tsuru");
+    const peyot = document.getElementById("peyot");
+    const spark = document.getElementById("spark");
+    hacerMovible(tsuru);
+    hacerMovible(peyot);
+    hacerMovible(spark);
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').then(async (registration) => {
+        console.log('SW registrado:', registration);
+
+        if ('sync' in registration) {
+          try {
+            await registration.sync.register('sync-datos');
+            console.log('Background sync registrado');
+          } catch (e) {
+            console.warn('Error registrando background sync:', e);
+          }
         }
 
-        // Selección de coches
-        const tsuru = document.getElementById("tsuru");
-        const peyot = document.getElementById("peyot");
-        const spark = document.getElementById("spark");
-
-        // Activar movimiento libre para todos
-        hacerMovible(tsuru);
-        hacerMovible(peyot);
-        hacerMovible(spark);
-
-    </script>
-    <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').then(async (registration) => {
-      console.log('SW registrado:', registration);
-
-      // 🟢 Registrar background sync
-      if ('sync' in registration) {
-        try {
-          await registration.sync.register('sync-datos');
-          console.log('Background sync registrado');
-        } catch (e) {
-          console.warn('Error registrando background sync:', e);
+        if ('periodicSync' in registration) {
+          try {
+            await registration.periodicSync.register('sync-periodico', {
+              minInterval: 24 * 60 * 60 * 1000
+            });
+            console.log('Periodic sync registrado');
+          } catch (e) {
+            console.warn('Error registrando periodic sync:', e);
+          }
         }
-      }
 
-      // 🟢 Registrar periodic sync
-      if ('periodicSync' in registration) {
-        try {
-          await registration.periodicSync.register('sync-periodico', {
-            minInterval: 24 * 60 * 60 * 1000 // 1 día
+        const permission = await Notification.requestPermission();
+        if (permission === "granted") {
+          console.log("Permiso de notificaciones concedido");
+          const subscription = await registration.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: "<TU_CLAVE_PUBLICA_VAPID>"
           });
-          console.log('Periodic sync registrado');
-        } catch (e) {
-          console.warn('Error registrando periodic sync:', e);
+          console.log("Push registrado", subscription);
         }
-      }
 
-      // 🟢 Push notification (sin backend, solo muestra el permiso)
-      const permission = await Notification.requestPermission();
-      if (permission === "granted") {
-        console.log("Permiso de notificaciones concedido");
-        const subscription = await registration.pushManager.subscribe({
-          userVisibleOnly: true,
-          applicationServerKey: "<TU_CLAVE_PUBLICA_VAPID>" // Esto requiere backend real
-        });
-        console.log("Push registrado", subscription);
-      }
+      }).catch(err => {
+        console.error('Fallo al registrar el SW:', err);
+      });
+    }
+  </script>
 
-    }).catch(err => {
-      console.error('Fallo al registrar el SW:', err);
+  <!-- EFECTO DE ESCRITURA -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const textos = [
+        `>Mecánica Fácil es una página web educativa y práctica diseñada para ayudar a personas sin conocimientos técnicos a entender y resolver problemas comunes en sus vehículos. Su objetivo principal es acercar la mecánica automotriz al usuario promedio, brindando información clara, visual y accesible para que cualquiera pueda aprender a identificar, prevenir y solucionar fallas sencillas en su auto.
+
+La plataforma está pensada especialmente para quienes desean ahorrar dinero en reparaciones básicas, ganar autonomía o simplemente entender mejor cómo funciona su vehículo.`,
+        "Aprende mecánica con ejemplos claros",
+        "Consejos, guías y mucho más",
+        "Explora nuestras secciones",
+        "¡Hazlo tú mismo, paso a paso!",
+        "Mecánica Fácil está contigo"
+      ];
+
+      const elementos = document.querySelectorAll(".texto-animado");
+      const velocidad = 40;
+
+      elementos.forEach((el, index) => {
+        const contenido = textos[index] || "";
+        let i = 0;
+
+        function escribirTexto() {
+          if (i < contenido.length) {
+            el.innerHTML += contenido.charAt(i);
+            i++;
+            setTimeout(escribirTexto, velocidad);
+          }
+        }
+
+        escribirTexto();
+      });
     });
-  }
-</script>
-
-
-
-
-
+  </script>
 </body>
 
 </html>
