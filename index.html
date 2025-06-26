@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <link rel="manifest" href="manifest.json">
   <script src="service-worker.js"></script>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#000000" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>Mecanica Facil</title>
 
   <style>
-    /* GENERAL */
     * {
       box-sizing: border-box;
     }
@@ -27,7 +25,6 @@
       overflow-x: hidden;
     }
 
-    /* CABECERA */
     .cabecera {
       position: relative;
       width: 100%;
@@ -59,7 +56,6 @@
       margin: 0;
     }
 
-    /* BOTONES PRINCIPALES */
     .p-b {
       display: flex;
       justify-content: center;
@@ -120,7 +116,6 @@
       animation: llevarPagina 1.5s ease-in-out forwards;
     }
 
-    /* ANUNCIO CARRUSEL */
     .anuncio-carrusel {
       position: absolute;
       top: 250px;
@@ -193,16 +188,16 @@
     }
 
     .imagen-texto-contenedor {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  width: 100%;
-  max-width: 1000px;
-  margin: 50px auto;
-  flex-wrap: wrap;
-  text-align: justify;
-}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
+      max-width: 1000px;
+      margin: 50px auto;
+      flex-wrap: wrap;
+      text-align: justify;
+    }
 
     .imagen-movible {
       width: 200px;
@@ -222,15 +217,16 @@
     }
 
     .texto-lateral {
-  flex: 1;
-  color: white;
-  font-size: 1.1rem;
-  padding: 20px;
-  min-width: 280px;
-  max-width: 500px;
-  display: flex;
-  align-items: center;
-}
+      flex: 1;
+      color: white;
+      font-size: 1.1rem;
+      padding: 20px;
+      min-width: 280px;
+      max-width: 500px;
+      display: flex;
+      align-items: center;
+      white-space: pre-line;
+    }
 
     @media screen and (max-width: 768px) {
       .text-container {
@@ -245,14 +241,12 @@
       }
     }
 
-    /* ESTILO PARA TEXTO ANIMADO */
     .texto-animado {
       white-space: pre-line;
       overflow: hidden;
     }
   </style>
 </head>
-
 <body>
   <div class="cabecera">
     <img id="logo" src="logo.png" alt="Logo">
@@ -302,12 +296,10 @@
     <div class="imagen-movible" id="imagen-movible">
       <img src="logo.png" alt="Imagen Movible">
     </div>
-    <div class="texto-lateral texto-animado">
+    <div class="texto-lateral">
       <p class="texto-animado"></p>
     </div>
   </div>
- 
-
 
   <div id="tsuru">
     <img src="tsurrari.png" alt="tsurrari">
@@ -318,7 +310,6 @@
   </div>
 
   <script>
-    // Carrusel automático de anuncios
     const slides = document.querySelectorAll(".anuncio-slide");
     let currentIndex = 0;
     setInterval(() => {
@@ -327,7 +318,6 @@
       slides[currentIndex].classList.add("active");
     }, 4000);
 
-    // Función genérica para mover cualquier coche
     function hacerMovible(elemento) {
       let isDragging = false;
       let offsetX = 0;
@@ -400,19 +390,18 @@
     }
   </script>
 
-  <!-- EFECTO DE ESCRITURA -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const textos = [
-        Mecánica Fácil es una página web educativa y práctica diseñada para ayudar a personas sin conocimientos técnicos a entender y resolver problemas comunes en sus vehículos. Su objetivo principal es acercar la mecánica automotriz al usuario promedio, brindando información clara, visual y accesible para que cualquiera pueda aprender a identificar, prevenir y solucionar fallas sencillas en su auto.
+        `Mecánica Fácil es una página web educativa y práctica diseñada para ayudar a personas sin conocimientos técnicos a entender y resolver problemas comunes en sus vehículos. 
 
-        La plataforma está pensada especialmente para quienes desean ahorrar dinero en reparaciones básicas, ganar autonomía o simplemente entender mejor cómo funciona su vehículo.
-        
-      
+Su objetivo principal es acercar la mecánica automotriz al usuario promedio, brindando información clara, visual y accesible para que cualquiera pueda aprender a identificar, prevenir y solucionar fallas sencillas en su auto.
+
+La plataforma está pensada especialmente para quienes desean ahorrar dinero en reparaciones básicas, ganar autonomía o simplemente entender mejor cómo funciona su vehículo.`
       ];
 
       const elementos = document.querySelectorAll(".texto-animado");
-      const velocidad = 40;
+      const velocidad = 35;
 
       elementos.forEach((el, index) => {
         const contenido = textos[index] || "";
@@ -431,5 +420,4 @@
     });
   </script>
 </body>
-
 </html>
