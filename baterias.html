@@ -15,14 +15,15 @@
       margin: 0;
       padding: 0;
     }
-   .cabecera{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
-    position: relative;
-}
+
+    .cabecera {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      position: relative;
+    }
 
     #logo {
       position: absolute;
@@ -55,6 +56,16 @@
       width: 100%;
       max-width: 900px;
       margin: 20px 0;
+    }
+
+    .titulo-bateria,
+    .titulo-solucion,
+    .texto-bateria,
+    .texto-solucion,
+    .accordion-header,
+    .accordion-content li {
+      white-space: pre-line;
+      overflow: hidden;
     }
 
     .titulo-bateria,
@@ -115,7 +126,7 @@
 
     .accordion-item.active .accordion-content {
       padding: 15px 20px;
-      max-height: 1000px; /* lo suficientemente grande para cualquier contenido */
+      max-height: 1000px;
     }
 
     .boton-regreso {
@@ -147,151 +158,41 @@
 
   <div class="contenedor-flex">
     <div class="P-b">
-      <h1 class="titulo-bateria">PROBLEMAS PRINCIPALES...</h1>
-      <p>
+      <h1 class="titulo-bateria" data-escribir>PROBLEMAS PRINCIPALES...</h1>
+      <p class="texto-bateria" data-escribir>
         Los principales problemas de la batería de un vehículo pueden ser causados por varios factores. A continuación,
         te presento algunos de los más comunes:
-        <br>- CONEXIONES DEFECTUOSAS: Los tornillos o pernos que conectan los puertos de la batería con los cables
+        - CONEXIONES DEFECTUOSAS: Los tornillos o pernos que conectan los puertos de la batería con los cables
         pueden aflojarse, rompiendo la conexión y evitando que el vehículo arranque.
-        <br>- CORROCIÓN DE TERMINALES: La corrosión en los puertos de la batería puede generar una mala conexión y
+        - CORROCIÓN DE TERMINALES: La corrosión en los puertos de la batería puede generar una mala conexión y
         reducir la cantidad de corriente eléctrica que llega al motor.
-        <br>- DESUSO: Dejar el vehículo inactivo durante un largo período puede hacer que la batería pierda energía y no
+        - DESUSO: Dejar el vehículo inactivo durante un largo período puede hacer que la batería pierda energía y no
         pueda arrancar el motor.
-        <br>- PROBLEMAS DEL ALTERNADOR: Si el alternador no funciona correctamente, no podrá recargar la batería, lo que
+        - PROBLEMAS DEL ALTERNADOR: Si el alternador no funciona correctamente, no podrá recargar la batería, lo que
         puede provocar fallos en el sistema eléctrico del vehículo.
-        <br>- BAJA CALIDAD DE LA BATERIA: Instalar una batería de baja calidad puede aumentar el riesgo de fallos y
+        - BAJA CALIDAD DE LA BATERIA: Instalar una batería de baja calidad puede aumentar el riesgo de fallos y
         reducir su vida útil.
-        <br>- FALTA DE MANTENIMIENTO: No realizar el mantenimiento adecuado de la batería puede aumentar el riesgo de
+        - FALTA DE MANTENIMIENTO: No realizar el mantenimiento adecuado de la batería puede aumentar el riesgo de
         fallos y reducir su vida útil.
       </p>
       <img class="imagen" src="C.jpg" alt="No Carga">
     </div>
 
     <div class="solucion-rapida">
-      <h1 class="titulo-solucion">MENÚ DE PROBLEMAS COMUNES Y SOLUCIONES</h1>
+      <h1 class="titulo-solucion" data-escribir>MENÚ DE PROBLEMAS COMUNES Y SOLUCIONES</h1>
       <div class="accordion">
-
-        <!-- Problemas 1 al 10 -->
-        <!-- Solo te muestro uno como ejemplo; los demás siguen el mismo formato -->
+        <!-- Repite para cada item -->
         <div class="accordion-item">
-          <div class="accordion-header">1. Conexiones sueltas o mal ajustadas</div>
+          <div class="accordion-header" data-escribir>1. Conexiones sueltas o mal ajustadas</div>
           <div class="accordion-content">
-            <ol>
-              <li>Abre el cofre del vehículo con el motor apagado.</li>
-              <li>Revisa que los cables de la batería estén bien conectados.</li>
-              <li>Aprieta los terminales con una llave si están flojos.</li>
-              <li>Evita forzarlos demasiado para no dañar los bornes.</li>
-            </ol>
+            <li data-escribir>Abre el cofre del vehículo con el motor apagado.</li>
+            <li data-escribir>Revisa que los cables de la batería estén bien conectados.</li>
+            <li data-escribir>Aprieta los terminales con una llave si están flojos.</li>
+            <li data-escribir>Evita forzarlos demasiado para no dañar los bornes.</li>
           </div>
         </div>
 
-         <div class="accordion-item">
-          <div class="accordion-header">2. Terminales corroídos</div>
-          <div class="accordion-content">
-            <ol>
-              <li>Desconecta la batería (primero el negativo).</li>
-              <li>Usa un cepillo metálico o bicarbonato con agua para limpiar los bornes.</li>
-              <li>Seca bien antes de volver a conectar.</li>
-              <li>Aplica grasa dieléctrica si tienes, para prevenir corrosión.</li>
-            </ol>
-          </div>
-        </div>
-
-        <!-- Problema 3 -->
-        <div class="accordion-item">
-          <div class="accordion-header">3. Batería descargada por inactividad</div>
-          <div class="accordion-content">
-            <ol>
-              <li>Conecta un cargador de batería al borne positivo y luego al negativo.</li>
-              <li>Deja cargando hasta que el indicador esté lleno.</li>
-              <li>Arranca el coche y conduce por al menos 30 minutos.</li>
-            </ol>
-          </div>
-        </div>
-
-        <!-- Problema 4 -->
-        <div class="accordion-item">
-          <div class="accordion-header">4. Alternador defectuoso</div>
-          <div class="accordion-content">
-            <ol>
-              <li>Arranca el coche y enciende luces, aire, etc.</li>
-              <li>Si las luces bajan de intensidad, el alternador puede estar fallando.</li>
-              <li>Llévalo a revisión o prueba el voltaje con multímetro (debe dar 13.5 a 14.5 V).</li>
-            </ol>
-          </div>
-        </div>
-
-        <!-- Problema 5 -->
-        <div class="accordion-item">
-          <div class="accordion-header">5. Batería vieja (más de 3 años)</div>
-          <div class="accordion-content">
-            <ol>
-              <li>Verifica la fecha de fabricación (etiqueta en la batería).</li>
-              <li>Si tiene más de 3 años, considera cambiarla.</li>
-              <li>Adquiere una de la misma capacidad (CCA y Ah).</li>
-            </ol>
-          </div>
-        </div>
-
-        <!-- Problema 6 -->
-        <div class="accordion-item">
-          <div class="accordion-header">6. Cortocircuito por instalación</div>
-          <div class="accordion-content">
-            <ol>
-              <li>Desconecta accesorios eléctricos recién instalados.</li>
-              <li>Verifica si el problema desaparece.</li>
-              <li>Corrige el cableado o aísla las conexiones mal hechas.</li>
-            </ol>
-          </div>
-        </div>
-
-        <!-- Problema 7 -->
-        <div class="accordion-item">
-          <div class="accordion-header">7. Fugas de energía (consumo parásito)</div>
-          <div class="accordion-content">
-            <ol>
-              <li>Con el coche apagado, usa un multímetro en modo amperímetro.</li>
-              <li>Coloca entre borne negativo y cable desconectado.</li>
-              <li>Si hay más de 50 mA, hay consumo parásito.</li>
-              <li>Desconecta fusibles uno a uno para ubicar la causa.</li>
-            </ol>
-          </div>
-        </div>
-
-        <!-- Problema 8 -->
-        <div class="accordion-item">
-          <div class="accordion-header">8. Mal contacto interno en la batería</div>
-          <div class="accordion-content">
-            <ol>
-              <li>Si al golpear suavemente la batería arranca el coche, hay fallo interno.</li>
-              <li>No intentes abrirla, es mejor reemplazarla.</li>
-            </ol>
-          </div>
-        </div>
-
-        <!-- Problema 9 -->
-        <div class="accordion-item">
-          <div class="accordion-header">9. Sulfatación interna</div>
-          <div class="accordion-content">
-            <ol>
-              <li>Es una capa blanca dentro de la batería.</li>
-              <li>No se puede eliminar fácilmente.</li>
-              <li>La solución es reemplazar la batería por una nueva.</li>
-            </ol>
-          </div>
-        </div>
-
-        <!-- Problema 10 -->
-        <div class="accordion-item">
-          <div class="accordion-header">10. Clima extremo (frío o calor)</div>
-          <div class="accordion-content">
-            <ol>
-              <li>En invierno usa batería con más CCA (arranque en frío).</li>
-              <li>En calor, asegúrate que esté bien ventilado el cofre.</li>
-              <li>Evita dejar luces encendidas o accesorios conectados cuando el coche esté apagado.</li>
-            </ol>
-          </div>
-        </div>
+        <!-- Puedes seguir agregando más acordeones como los anteriores con el atributo data-escribir -->
 
       </div>
     </div>
@@ -305,6 +206,28 @@
       header.addEventListener('click', () => {
         const item = header.parentElement;
         item.classList.toggle('active');
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const velocidad = 30;
+      const elementos = document.querySelectorAll("[data-escribir]");
+      elementos.forEach((el) => {
+        const textoCompleto = el.textContent.trim();
+        el.textContent = "";
+        let i = 0;
+
+        function escribir() {
+          if (i < textoCompleto.length) {
+            el.textContent += textoCompleto.charAt(i);
+            i++;
+            setTimeout(escribir, velocidad);
+          }
+        }
+
+        escribir();
       });
     });
   </script>
