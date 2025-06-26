@@ -8,175 +8,163 @@
   <title>Llantas - Mecánica Fácil</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-   body {
-    background-color: black;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-/* Cabecera */
-.cabecera {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
-    position: relative;
-}
-
-#logo {
-    position: absolute;
-    left: 20px;
-    height: 75px;
-    width: auto;
-}
-
-@media (max-width: 500px) {
-    #logo {
-        display: none;
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
     }
-}
 
-#titulo {
-    text-align: center;
-    font-size: 3rem;
-    margin: 0;
-}
+    .cabecera {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      position: relative;
+    }
 
-.contenedor-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto 20px auto;
-    padding: 20px 10px;
-    box-sizing: border-box;
-    gap: 20px;
-}
+    #logo {
+      position: absolute;
+      left: 20px;
+      height: 75px;
+      width: auto;
+    }
 
+    @media (max-width: 500px) {
+      #logo {
+        display: none;
+      }
+    }
 
-.P-b {
-    flex: 1;
-    padding-left: 0;
-    margin-left: 0;
-}
-
-.titulo-bateria,
-.titulo-solucion {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.texto-bateria,
-.texto-solucion {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-/* Imagen a la derecha */
-.imagen {
-    width: 250px;
-    height: 250px;
-    border: 1px solid white;
-    display: block;
-    margin: 0;
-}
-
-/* Solución rápida */
-.solucion-rapida {
-    width: 90%;
-    max-width: 900px;
-    margin: 0 auto 30px auto;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-/* Separador lateral fijo */
-#hr-anuncio {
-    position: fixed;
-    top: 90px;
-    left: 15%;
-    width: 1px;
-    height: 50%;
-    background-color: white;
-    z-index: 1;
-}
-
-.hr-anuncio1 {
-    position: absolute;
-    left: 10%;
-    height: 200%;
-    margin-top: .5%;
-}
-
-
-/* RESPONSIVE: pantallas pequeñas */
-@media (max-width: 1500px) {
     #titulo {
-        font-size: 2rem;
+      text-align: center;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .contenedor-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto 20px auto;
+      padding: 20px 10px;
+      box-sizing: border-box;
+      gap: 20px;
+      animation: fadeInUp 1s ease both;
+    }
+
+    .P-b {
+      flex: 1;
+      padding-left: 0;
+      margin-left: 0;
+    }
+
+    .titulo-bateria,
+    .titulo-solucion,
+    .texto-bateria,
+    .texto-solucion,
+    .acordeon-titulo,
+    .acordeon-contenido li {
+      white-space: pre-line;
+      overflow: hidden;
     }
 
     .titulo-bateria,
     .titulo-solucion {
-        font-size: 1.5rem;
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
 
     .texto-bateria,
     .texto-solucion {
-        font-size: 1rem;
+      font-size: 1.2rem;
+      line-height: 1.6;
     }
 
     .imagen {
-        width: 180px;
-        height: 180px;
+      width: 250px;
+      height: 250px;
+      border: 1px solid white;
+      display: block;
+      margin: 0;
     }
 
-    #coche {
-        display: none;
+    .solucion-rapida {
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto 30px auto;
+      padding: 10px;
+      box-sizing: border-box;
+      animation: fadeInUp 1s ease both;
     }
 
-    #f1i {
-        display: none;
-    }
-
-    .contenedor-flex {
-        flex-direction: column;
-        align-items: center;
+    #hr-anuncio {
+      position: fixed;
+      top: 90px;
+      left: 15%;
+      width: 1px;
+      height: 50%;
+      background-color: white;
+      z-index: 1;
     }
 
     .hr-anuncio1 {
-        display: none;
+      position: absolute;
+      left: 10%;
+      height: 200%;
+      margin-top: .5%;
     }
-}
 
-/* Animación de entrada suave */
-@keyframes fadeInUp {
-    from {
+    @media (max-width: 1500px) {
+      #titulo {
+        font-size: 2rem;
+      }
+
+      .titulo-bateria,
+      .titulo-solucion {
+        font-size: 1.5rem;
+      }
+
+      .texto-bateria,
+      .texto-solucion {
+        font-size: 1rem;
+      }
+
+      .imagen {
+        width: 180px;
+        height: 180px;
+      }
+
+      #coche,
+      #f1i,
+      .hr-anuncio1 {
+        display: none;
+      }
+
+      .contenedor-flex {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
         opacity: 0;
         transform: translateY(20px);
-    }
+      }
 
-    to {
+      to {
         opacity: 1;
         transform: translateY(0);
+      }
     }
-}
 
-.contenedor-flex {
-    animation: fadeInUp 1s ease both;
-}
-
-/* También puedes animar individualmente si quieres más control */
-.solucion-rapida,
-.VIDEOS {
-    animation: fadeInUp 1s ease both;
-}
-
-.boton-regreso {
+    .boton-regreso {
       background: linear-gradient(135deg, white, grey);
       color: black;
       padding: 15px 30px;
@@ -192,60 +180,61 @@
       background: linear-gradient(135deg, grey, white);
       transform: scale(1.05);
     }
+
     .acordeon {
-    width: 90%;
-    max-width: 900px;
-    margin: 30px auto;
-}
+      width: 90%;
+      max-width: 900px;
+      margin: 30px auto;
+    }
 
-.acordeon-item {
-    background-color: #222;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid white;
-}
+    .acordeon-item {
+      background-color: #222;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid white;
+    }
 
-.acordeon-titulo {
-    padding: 15px 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    font-weight: bold;
-    background-color: #333;
-    transition: background 0.3s ease;
-}
+    .acordeon-titulo {
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      font-weight: bold;
+      background-color: #333;
+      transition: background 0.3s ease;
+    }
 
-.acordeon-titulo:hover {
-    background-color: #444;
-}
+    .acordeon-titulo:hover {
+      background-color: #444;
+    }
 
-.acordeon-contenido {
-    padding: 0 20px 15px 20px;
-    display: none;
-    font-size: 1rem;
-    line-height: 1.5;
-    background-color: #111;
-    animation: fadeInUp 0.5s ease;
-}
+    .acordeon-contenido {
+      padding: 0 20px 15px 20px;
+      display: none;
+      font-size: 1rem;
+      line-height: 1.5;
+      background-color: #111;
+      animation: fadeInUp 0.5s ease;
+    }
   </style>
 </head>
 
 <body>
   <div class="cabecera">
     <img id="logo" src="logo.png" alt="Logo">
-    <h1 id="titulo">Mecánica Fácil</h1>
+    <h1 id="titulo" data-escribir>Mecánica Fácil</h1>
   </div>
   <hr style="width: 100%;">
 
   <div class="contenedor-flex">
     <div class="P-b">
-      <h1 class="titulo-bateria">PROBLEMAS PRINCIPALES...</h1>
-      <p class="texto-bateria">
+      <h1 class="titulo-bateria" data-escribir>PROBLEMAS PRINCIPALES...</h1>
+      <p class="texto-bateria" data-escribir>
         Las llantas son uno de los elementos más importantes para la seguridad y el rendimiento del vehículo. Estos son los problemas más comunes relacionados con ellas:
-        <br>- <strong>Baja presión:</strong> Puede causar desgaste irregular, pérdida de control y mayor consumo de combustible.
-        <br>- <strong>Desgaste excesivo:</strong> Disminuye la tracción y aumenta el riesgo de reventones.
-        <br>- <strong>Golpes o abultamientos:</strong> Son señales de daño interno, lo cual puede ser muy peligroso.
-        <br>- <strong>Desalineación o balanceo incorrecto:</strong> Produce vibraciones al conducir y desgaste desigual.
+        - Baja presión: Puede causar desgaste irregular, pérdida de control y mayor consumo de combustible.
+        - Desgaste excesivo: Disminuye la tracción y aumenta el riesgo de reventones.
+        - Golpes o abultamientos: Son señales de daño interno, lo cual puede ser muy peligroso.
+        - Desalineación o balanceo incorrecto: Produce vibraciones al conducir y desgaste desigual.
       </p>
     </div>
 
@@ -254,44 +243,43 @@
 
   <div class="acordeon">
     <div class="acordeon-item">
-      <div class="acordeon-titulo">¿Qué hacer si una llanta tiene baja presión?</div>
+      <div class="acordeon-titulo" data-escribir>¿Qué hacer si una llanta tiene baja presión?</div>
       <div class="acordeon-contenido">
-        <li>Verifica la presión con un manómetro.</li>
-        <li>Infla la llanta al nivel recomendado (indicado en el marco de la puerta del conductor).</li>
-        <li>Si pierde aire frecuentemente, revisa si hay un clavo o fuga. Acude a una vulcanizadora.</li>
+        <li data-escribir>Verifica la presión con un manómetro.</li>
+        <li data-escribir>Infla la llanta al nivel recomendado (indicado en el marco de la puerta del conductor).</li>
+        <li data-escribir>Si pierde aire frecuentemente, revisa si hay un clavo o fuga. Acude a una vulcanizadora.</li>
       </div>
     </div>
 
     <div class="acordeon-item">
-      <div class="acordeon-titulo">¿Qué hacer si la llanta está desgastada?</div>
+      <div class="acordeon-titulo" data-escribir>¿Qué hacer si la llanta está desgastada?</div>
       <div class="acordeon-contenido">
-        <li>Revisa el dibujo o profundidad del labrado (usa una moneda si no tienes medidor).</li>
-        <li>Si está muy lisa o hay desgaste irregular, cámbiala de inmediato.</li>
-        <li>Haz rotación y alineación cada 10,000 km para prolongar su vida útil.</li>
+        <li data-escribir>Revisa el dibujo o profundidad del labrado (usa una moneda si no tienes medidor).</li>
+        <li data-escribir>Si está muy lisa o hay desgaste irregular, cámbiala de inmediato.</li>
+        <li data-escribir>Haz rotación y alineación cada 10,000 km para prolongar su vida útil.</li>
       </div>
     </div>
 
     <div class="acordeon-item">
-      <div class="acordeon-titulo">¿Qué hacer si la llanta tiene un golpe o abultamiento?</div>
+      <div class="acordeon-titulo" data-escribir>¿Qué hacer si la llanta tiene un golpe o abultamiento?</div>
       <div class="acordeon-contenido">
-        <li>No sigas conduciendo: es peligroso y puede explotar.</li>
-        <li>Acude con un especialista para valoración.</li>
-        <li>Lo más probable es que deba cambiarse la llanta afectada.</li>
+        <li data-escribir>No sigas conduciendo: es peligroso y puede explotar.</li>
+        <li data-escribir>Acude con un especialista para valoración.</li>
+        <li data-escribir>Lo más probable es que deba cambiarse la llanta afectada.</li>
       </div>
     </div>
 
     <div class="acordeon-item">
-      <div class="acordeon-titulo">¿Qué hacer si el auto vibra al conducir?</div>
+      <div class="acordeon-titulo" data-escribir>¿Qué hacer si el auto vibra al conducir?</div>
       <div class="acordeon-contenido">
-        <li>Podría ser falta de balanceo o alineación.</li>
-        <li>Llévalo a un taller para revisar y ajustar el balanceo de llantas y dirección.</li>
-        <li>Verifica también que no haya llantas deformadas.</li>
+        <li data-escribir>Podría ser falta de balanceo o alineación.</li>
+        <li data-escribir>Llévalo a un taller para revisar y ajustar el balanceo de llantas y dirección.</li>
+        <li data-escribir>Verifica también que no haya llantas deformadas.</li>
       </div>
     </div>
   </div>
 
   <script>
-
     const titulos = document.querySelectorAll('.acordeon-titulo');
     titulos.forEach(titulo => {
       titulo.addEventListener('click', () => {
@@ -299,6 +287,28 @@
         const visible = contenido.style.display === 'block';
         document.querySelectorAll('.acordeon-contenido').forEach(c => c.style.display = 'none');
         contenido.style.display = visible ? 'none' : 'block';
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const velocidad = 30;
+      const elementos = document.querySelectorAll("[data-escribir]");
+      elementos.forEach((el) => {
+        const textoCompleto = el.textContent.trim();
+        el.textContent = "";
+        let i = 0;
+
+        function escribir() {
+          if (i < textoCompleto.length) {
+            el.textContent += textoCompleto.charAt(i);
+            i++;
+            setTimeout(escribir, velocidad);
+          }
+        }
+
+        escribir();
       });
     });
   </script>
