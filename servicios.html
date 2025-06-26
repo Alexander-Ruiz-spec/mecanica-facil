@@ -7,173 +7,143 @@
   <title>Servicios de mantenimiento - Mecánica Fácil</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-   body {
-    background-color: black;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-/* Cabecera */
-.cabecera {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
-    position: relative;
-}
-
-#logo {
-    position: absolute;
-    left: 20px;
-    height: 75px;
-    width: auto;
-}
-
-@media (max-width: 500px) {
-    #logo {
-        display: none;
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
     }
-}
 
-#titulo {
-    text-align: center;
-    font-size: 3rem;
-    margin: 0;
-}
+    .cabecera {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      position: relative;
+    }
 
-.contenedor-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto 20px auto;
-    padding: 20px 10px;
-    box-sizing: border-box;
-    gap: 20px;
-}
+    #logo {
+      position: absolute;
+      left: 20px;
+      height: 75px;
+      width: auto;
+    }
 
+    @media (max-width: 500px) {
+      #logo {
+        display: none;
+      }
+    }
 
-.P-b {
-    flex: 1;
-    padding-left: 0;
-    margin-left: 0;
-}
-
-.titulo-bateria,
-.titulo-solucion {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.texto-bateria,
-.texto-solucion {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-/* Imagen a la derecha */
-.imagen {
-    width: 250px;
-    height: 250px;
-    border: 1px solid white;
-    display: block;
-    margin: 0;
-}
-
-/* Solución rápida */
-.solucion-rapida {
-    width: 90%;
-    max-width: 900px;
-    margin: 0 auto 30px auto;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-/* Separador lateral fijo */
-#hr-anuncio {
-    position: fixed;
-    top: 90px;
-    left: 15%;
-    width: 1px;
-    height: 50%;
-    background-color: white;
-    z-index: 1;
-}
-
-.hr-anuncio1 {
-    position: absolute;
-    left: 10%;
-    height: 200%;
-    margin-top: .5%;
-}
-/* RESPONSIVE: pantallas pequeñas */
-@media (max-width: 1500px) {
     #titulo {
-        font-size: 2rem;
+      text-align: center;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .contenedor-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto 20px auto;
+      padding: 20px 10px;
+      box-sizing: border-box;
+      gap: 20px;
+      animation: fadeInUp 1s ease both;
+    }
+
+    .P-b {
+      flex: 1;
+    }
+
+    .titulo-bateria,
+    .titulo-solucion,
+    .texto-bateria,
+    .texto-solucion,
+    .acordeon-titulo,
+    .acordeon-contenido li {
+      white-space: pre-line;
+      overflow: hidden;
     }
 
     .titulo-bateria,
     .titulo-solucion {
-        font-size: 1.5rem;
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
 
     .texto-bateria,
     .texto-solucion {
-        font-size: 1rem;
+      font-size: 1.2rem;
+      line-height: 1.6;
     }
 
     .imagen {
+      width: 250px;
+      height: 250px;
+      border: 1px solid white;
+      display: block;
+      margin: 0;
+    }
+
+    .solucion-rapida {
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto 30px auto;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 1500px) {
+      #titulo {
+        font-size: 2rem;
+      }
+
+      .titulo-bateria,
+      .titulo-solucion {
+        font-size: 1.5rem;
+      }
+
+      .texto-bateria,
+      .texto-solucion {
+        font-size: 1rem;
+      }
+
+      .imagen {
         width: 180px;
         height: 180px;
-    }
+      }
 
-    #coche {
+      #coche,
+      #f1i,
+      .hr-anuncio1 {
         display: none;
-    }
+      }
 
-    #f1i {
-        display: none;
-    }
-
-    .contenedor-flex {
+      .contenedor-flex {
         flex-direction: column;
         align-items: center;
+      }
     }
 
-    .hr-anuncio1 {
-        display: none;
-    }
-}
-
-/* Animación de entrada suave */
-@keyframes fadeInUp {
-    from {
+    @keyframes fadeInUp {
+      from {
         opacity: 0;
         transform: translateY(20px);
-    }
+      }
 
-    to {
+      to {
         opacity: 1;
         transform: translateY(0);
+      }
     }
-}
 
-.contenedor-flex {
-    animation: fadeInUp 1s ease both;
-}
-
-/* También puedes animar individualmente si quieres más control */
-.solucion-rapida,
-.VIDEOS {
-    animation: fadeInUp 1s ease both;
-}
-
-.boton-regreso {
+    .boton-regreso {
       background: linear-gradient(135deg, white, grey);
       color: black;
       padding: 15px 30px;
@@ -189,59 +159,60 @@
       background: linear-gradient(135deg, grey, white);
       transform: scale(1.05);
     }
+
     .acordeon {
-    width: 90%;
-    max-width: 900px;
-    margin: 30px auto;
-}
+      width: 90%;
+      max-width: 900px;
+      margin: 30px auto;
+    }
 
-.acordeon-item {
-    background-color: #222;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid white;
-}
+    .acordeon-item {
+      background-color: #222;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid white;
+    }
 
-.acordeon-titulo {
-    padding: 15px 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    font-weight: bold;
-    background-color: #333;
-    transition: background 0.3s ease;
-}
+    .acordeon-titulo {
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      font-weight: bold;
+      background-color: #333;
+      transition: background 0.3s ease;
+    }
 
-.acordeon-titulo:hover {
-    background-color: #444;
-}
+    .acordeon-titulo:hover {
+      background-color: #444;
+    }
 
-.acordeon-contenido {
-    padding: 0 20px 15px 20px;
-    display: none;
-    font-size: 1rem;
-    line-height: 1.5;
-    background-color: #111;
-    animation: fadeInUp 0.5s ease;
-}
+    .acordeon-contenido {
+      padding: 0 20px 15px 20px;
+      display: none;
+      font-size: 1rem;
+      line-height: 1.5;
+      background-color: #111;
+      animation: fadeInUp 0.5s ease;
+    }
   </style>
 </head>
 <body>
   <div class="cabecera">
     <img id="logo" src="logo.png" alt="Logo">
-    <h1 id="titulo">Mecánica Fácil</h1>
+    <h1 id="titulo" data-escribir>Mecánica Fácil</h1>
   </div>
   <hr style="width: 100%;">
 
   <div class="contenedor-flex">
     <div class="P-b">
-      <h1 class="titulo-bateria">PROBLEMAS PRINCIPALES...</h1>
-      <p class="texto-bateria">
+      <h1 class="titulo-bateria" data-escribir>PROBLEMAS PRINCIPALES...</h1>
+      <p class="texto-bateria" data-escribir>
         El mantenimiento preventivo es clave para evitar fallas costosas en el vehículo. Cuando se descuida, pueden presentarse problemas como:
-        <br>- <strong>Motor con bajo rendimiento:</strong> Por bujías sucias, filtros tapados o aceite viejo.
-        <br>- <strong>Consumo excesivo de combustible:</strong> Por mal estado del filtro de aire o inyectores sucios.
-        <br>- <strong>Frenos deficientes:</strong> Pastillas desgastadas o líquido viejo pueden afectar la seguridad.
-        <br>- <strong>Fallos eléctricos:</strong> Por batería descargada o cables corroídos.
+        - Motor con bajo rendimiento: Por bujías sucias, filtros tapados o aceite viejo.
+        - Consumo excesivo de combustible: Por mal estado del filtro de aire o inyectores sucios.
+        - Frenos deficientes: Pastillas desgastadas o líquido viejo pueden afectar la seguridad.
+        - Fallos eléctricos: Por batería descargada o cables corroídos.
       </p>
     </div>
 
@@ -250,46 +221,43 @@
 
   <div class="acordeon">
     <div class="acordeon-item">
-      <div class="acordeon-titulo">¿Cada cuánto tiempo debo dar mantenimiento al auto?</div>
+      <div class="acordeon-titulo" data-escribir>¿Cada cuánto tiempo debo dar mantenimiento al auto?</div>
       <div class="acordeon-contenido">
-        <li>Lo ideal es cada 5,000 a 10,000 km o cada 6 meses, según el uso.</li>
-        <li>Consulta el manual del fabricante para intervalos específicos.</li>
+        <li data-escribir>Lo ideal es cada 5,000 a 10,000 km o cada 6 meses, según el uso.</li>
+        <li data-escribir>Consulta el manual del fabricante para intervalos específicos.</li>
       </div>
     </div>
 
     <div class="acordeon-item">
-      <div class="acordeon-titulo">¿Qué incluye una afinación básica?</div>
+      <div class="acordeon-titulo" data-escribir>¿Qué incluye una afinación básica?</div>
       <div class="acordeon-contenido">
-        <li>Cambio de bujías y filtros (aire, aceite, gasolina).</li>
-        <li>Revisión y reemplazo de aceite.</li>
-        <li>Chequeo de inyectores, batería y sistema de encendido.</li>
+        <li data-escribir>Cambio de bujías y filtros (aire, aceite, gasolina).</li>
+        <li data-escribir>Revisión y reemplazo de aceite.</li>
+        <li data-escribir>Chequeo de inyectores, batería y sistema de encendido.</li>
       </div>
     </div>
 
     <div class="acordeon-item">
-      <div class="acordeon-titulo">¿Cómo saber si ya necesita mantenimiento?</div>
+      <div class="acordeon-titulo" data-escribir>¿Cómo saber si ya necesita mantenimiento?</div>
       <div class="acordeon-contenido">
-        <li>El coche tarda en encender o pierde potencia.</li>
-        <li>Escuchas ruidos inusuales en el motor o frenos.</li>
-        <li>Notas consumo excesivo de gasolina.</li>
-        <li>Testigos en el tablero encendidos.</li>
+        <li data-escribir>El coche tarda en encender o pierde potencia.</li>
+        <li data-escribir>Escuchas ruidos inusuales en el motor o frenos.</li>
+        <li data-escribir>Notas consumo excesivo de gasolina.</li>
+        <li data-escribir>Testigos en el tablero encendidos.</li>
       </div>
     </div>
 
     <div class="acordeon-item">
-      <div class="acordeon-titulo">¿Qué pasa si no doy mantenimiento?</div>
+      <div class="acordeon-titulo" data-escribir>¿Qué pasa si no doy mantenimiento?</div>
       <div class="acordeon-contenido">
-        <li>Puede causar desgaste prematuro del motor y otras partes.</li>
-        <li>Incrementa el riesgo de accidentes por fallas inesperadas.</li>
-        <li>Aumenta el costo de reparaciones futuras.</li>
+        <li data-escribir>Puede causar desgaste prematuro del motor y otras partes.</li>
+        <li data-escribir>Incrementa el riesgo de accidentes por fallas inesperadas.</li>
+        <li data-escribir>Aumenta el costo de reparaciones futuras.</li>
       </div>
     </div>
   </div>
 
-  
-
   <script>
-
     const titulos = document.querySelectorAll('.acordeon-titulo');
     titulos.forEach(titulo => {
       titulo.addEventListener('click', () => {
@@ -297,6 +265,25 @@
         const visible = contenido.style.display === 'block';
         document.querySelectorAll('.acordeon-contenido').forEach(c => c.style.display = 'none');
         contenido.style.display = visible ? 'none' : 'block';
+      });
+    });
+
+    // Máquina de escribir
+    document.addEventListener("DOMContentLoaded", function () {
+      const velocidad = 30;
+      const elementos = document.querySelectorAll("[data-escribir]");
+      elementos.forEach((el) => {
+        const texto = el.textContent.trim();
+        el.textContent = "";
+        let i = 0;
+        function escribir() {
+          if (i < texto.length) {
+            el.textContent += texto.charAt(i);
+            i++;
+            setTimeout(escribir, velocidad);
+          }
+        }
+        escribir();
       });
     });
   </script>
