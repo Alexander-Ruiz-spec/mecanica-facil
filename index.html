@@ -193,15 +193,16 @@
     }
 
     .imagen-texto-contenedor {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 40px;
-      gap: 20px;
-      width: 90%;
-      max-width: 1000px;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 50px auto;
+  flex-wrap: wrap;
+  text-align: justify;
+}
 
     .imagen-movible {
       width: 200px;
@@ -221,10 +222,15 @@
     }
 
     .texto-lateral {
-      max-width: 400px;
-      color: white;
-      font-size: 1.1rem;
-    }
+  flex: 1;
+  color: white;
+  font-size: 1.1rem;
+  padding: 20px;
+  min-width: 280px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
 
     @media screen and (max-width: 768px) {
       .text-container {
