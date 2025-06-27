@@ -310,12 +310,14 @@
     hacerMovible(document.getElementById("tsuru"));
     hacerMovible(document.getElementById("peyot"));
 
-    function mostrarLoader(url) {
-      document.getElementById("loader").style.display = "flex";
-      setTimeout(() => {
-        window.location.href = url;
-      }, 1500); // Puedes ajustar el tiempo si lo deseas
-    }
+    // Solución para ocultar el loader si se regresa desde el historial (botón "atrás")
+window.addEventListener("pageshow", function (event) {
+  const loader = document.getElementById("loader");
+  if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+    loader.style.display = "none";
+  }
+});
+
 
     // Escribir texto animado
     document.addEventListener("DOMContentLoaded", () => {
