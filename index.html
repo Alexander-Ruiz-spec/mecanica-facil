@@ -25,6 +25,25 @@
       overflow-x: hidden;
     }
 
+    /* Loader */
+    #loader {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #loader img {
+      width: 100px;
+      height: 100px;
+    }
+
     .cabecera {
       position: relative;
       width: 100%;
@@ -205,36 +224,17 @@
       white-space: pre-line;
       overflow: hidden;
     }
-
-    /* CARGADOR */
-    #loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      display: none;
-    }
-
-    #loader img {
-      width: 100px;
-      height: 100px;
-    }
   </style>
 </head>
 <body>
-  <div class="cabecera">
-    <img id="logo" src="logo.png" alt="Logo">
-    <h1 id="titulo">Mecanica Facil</h1>
-  </div>
 
   <div id="loader">
     <img src="loader.gif" alt="Cargando...">
+  </div>
+
+  <div class="cabecera">
+    <img id="logo" src="logo.png" alt="Logo">
+    <h1 id="titulo">Mecanica Facil</h1>
   </div>
 
   <div class="anuncio-carrusel">
@@ -310,16 +310,20 @@
     hacerMovible(document.getElementById("tsuru"));
     hacerMovible(document.getElementById("peyot"));
 
-  function mostrarLoader(url) {
-  document.getElementById("loader").style.display = "flex";
-  setTimeout(() => {
-    window.location.href = url;
-  }, 1500);
-}
+    function mostrarLoader(url) {
+      const loader = document.getElementById("loader");
+      loader.style.display = "flex";
+      setTimeout(() => {
+        window.location.href = url;
+      }, 1200);
+    }
 
+    // Ocultar loader si vienes de "atrás" en navegador
+    window.addEventListener("pageshow", (event) => {
+      const loader = document.getElementById("loader");
+      loader.style.display = "none";
+    });
 
-
-    // Escribir texto animado
     document.addEventListener("DOMContentLoaded", () => {
       const textos = [`Mecánica Fácil es una página web educativa y práctica diseñada para ayudar a personas sin conocimientos técnicos a entender y resolver problemas comunes en sus vehículos. 
 
