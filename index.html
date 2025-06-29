@@ -10,7 +10,6 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>Mecanica Facil</title>
   <style>
-    <style>
   * {
     box-sizing: border-box;
   }
@@ -122,39 +121,7 @@
     color: black;
   }
 
-  .anuncio-carrusel {
-    position: absolute;
-    top: 250px;
-    left: 1%;
-    width: 130px;
-    height: 300px;
-    overflow: hidden;
-    background-color: #222;
-    color: white;
-    border: 1px solid white;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    text-align: center;
-    z-index: 10;
-    font-size: 0.9rem;
-  }
-
-  .anuncio-slide {
-    display: none;
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.5s ease-in-out;
-  }
-
-  .anuncio-slide.active {
-    display: block;
-  }
-
   @media (max-width: 1500px) {
-    .anuncio-carrusel,
     #tsuru,
     #peyot,
     #text-container {
@@ -239,11 +206,7 @@
     <h1 id="titulo">Mecanica Facil</h1>
   </div>
 
-  <div class="anuncio-carrusel">
-    <div class="anuncio-slide active"><p>🔧 ¿Conoces todo sobre tu coche?</p></div>
-    <div class="anuncio-slide"><p>🛠️ ¿Lo arreglamos?</p></div>
-    <div class="anuncio-slide"><p>🚗 ¿Cambio de aceite express?</p></div>
-  </div>
+  
 
   <hr style="width: 100%;">
 
@@ -348,28 +311,29 @@
     });
 
     document.addEventListener("DOMContentLoaded", () => {
-      const textos = [Mecánica Fácil es una página web educativa y práctica diseñada para ayudar a personas sin conocimientos técnicos a entender y resolver problemas comunes en sus vehículos. 
+  const textos = [`Mecánica Fácil es una página web educativa y práctica diseñada para ayudar a personas sin conocimientos técnicos a entender y resolver problemas comunes en sus vehículos.
 
 Su objetivo principal es acercar la mecánica automotriz al usuario promedio, brindando información clara, visual y accesible para que cualquiera pueda aprender a identificar, prevenir y solucionar fallas sencillas en su auto.
 
-La plataforma está pensada especialmente para quienes desean ahorrar dinero en reparaciones básicas, ganar autonomía o simplemente entender mejor cómo funciona su vehículo.];
+La plataforma está pensada especialmente para quienes desean ahorrar dinero en reparaciones básicas, ganar autonomía o simplemente entender mejor cómo funciona su vehículo.`];
 
-      const elementos = document.querySelectorAll(".texto-animado");
-      const velocidad = 35;
+  const elementos = document.querySelectorAll(".texto-animado");
+  const velocidad = 35;
 
-      elementos.forEach((el, index) => {
-        const contenido = textos[index] || "";
-        let i = 0;
-        function escribirTexto() {
-          if (i < contenido.length) {
-            el.innerHTML += contenido.charAt(i);
-            i++;
-            setTimeout(escribirTexto, velocidad);
-          }
-        }
-        escribirTexto();
-      });
-    });
+  elementos.forEach((el, index) => {
+    const contenido = textos[index] || "";
+    let i = 0;
+    function escribirTexto() {
+      if (i < contenido.length) {
+        el.innerHTML += contenido.charAt(i);
+        i++;
+        setTimeout(escribirTexto, velocidad);
+      }
+    }
+    escribirTexto();
+  });
+});
+
   </script>
 </body>
 </html>
