@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Escape - Mecánica Fácil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+
+    body {background-color:black;color:white;font-family:'Poppins',sans-serif;margin:0;padding:0;}
+    .cabecera{width:100%;display:flex;justify-content:center;align-items:center;padding:20px 0;position:relative;}
+    #logo{position:absolute;left:20px;height:75px;}@media(max-width:500px){#logo{display:none;}}
+    #titulo{text-align:center;font-size:3rem;margin:0;}
+    .contenedor-flex{display:flex;flex-direction:column;align-items:center;width:90%;margin:0 auto 20px auto;}
+    .P-b,.solucion-rapida{width:100%;max-width:900px;margin:20px 0;}
+    .titulo-bateria,.titulo-solucion,.texto-bateria,.texto-solucion,.accordion-header,.accordion-content li{white-space:pre-line;overflow:hidden;}
+    .titulo-bateria,.titulo-solucion{font-size:2rem;}
+    .texto-bateria,.texto-solucion{font-size:1.2rem;line-height:1.6;}
+    .imagen{width:250px;height:250px;border:1px solid white;margin:10px 0;}
+    .accordion{width:100%;max-width:900px;margin:0 auto;}
+    .accordion-item{background-color:#222;margin-bottom:10px;border-radius:10px;overflow:hidden;border:1px solid #555;transition:all 0.3s ease;}
+    .accordion-header{background-color:#333;padding:15px 20px;cursor:pointer;font-weight:bold;font-size:1.2rem;transition:background 0.3s;}
+    .accordion-header:hover{background-color:#444;}
+    .accordion-content{padding:0 20px;max-height:0;overflow:hidden;background-color:#111;font-size:1rem;line-height:1.6;transition:max-height 0.4s ease;}
+    .accordion-item.active .accordion-content{padding:15px 20px;max-height:1000px;}
+    .boton-regreso{background:linear-gradient(135deg,white,grey);color:black;padding:15px 30px;font-size:1.2rem;border:none;border-radius:50px;cursor:pointer;margin:30px auto;display:block;}
+    .boton-regreso:hover{background:linear-gradient(135deg,grey,white);transform:scale(1.05);}
+
+  </style>
+</head>
+<body>
+  <div class="cabecera"><img id="logo" src="logo.png" alt="Logo"><h1 id="titulo">Mecánica Fácil</h1></div>
+  <hr style="width: 100%;">
+  <div class="contenedor-flex">
+    <div class="P-b">
+      <h1 class="titulo-bateria" data-escribir>PROBLEMAS PRINCIPALES DEL SISTEMA DE ESCAPE</h1>
+      <p class="texto-bateria" data-escribir>
+        - OXIDACIÓN DEL TUBO: Perforaciones y fugas de gases.
+        - CATALIZADOR OBSTRUIDO: Reduce potencia y aumenta consumo.
+        - SENSOR DE OXÍGENO DEFECTUOSO: Mezcla rica o pobre que daña motor.
+        - SILENCIADOR PERFORADO: Ruidos fuertes y posibles multas.
+        - JUNTAS O ABRAZADERAS FLOJAS: Vibraciones y fugas de gases.
+        - SOPORTES ROTOS: El tubo golpea la carrocería.
+        - RESONADOR DAÑADO: Zumbidos u hormigueo en cabina.
+      </p>
+      <img class="imagen" src="escape.jpg" alt="Sistema de escape">
+    </div>
+    <div class="solucion-rapida">
+      <h1 class="titulo-solucion" data-escribir>MENÚ DE PROBLEMAS COMUNES Y SOLUCIONES</h1>
+      <div class="accordion">
+
+        <div class="accordion-item">
+          <div class="accordion-header" data-escribir>1. Fugas por oxidación</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Eleva el coche y localiza perforaciones.</li><li>Lija el área de la fuga.</li><li>Aplica parche o reemplaza sección.</li><li>Protege con pintura alta temperatura.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" data-escribir>2. Catalizador obstruido</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Verifica presión posterior.</li><li>Escanea códigos P0420/P0430.</li><li>Reemplázalo si supera 3 psi.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" data-escribir>3. Sensor O2 defectuoso</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Monitorea voltaje (0.1‑0.9 V).</li><li>Si está fijo, reemplaza el sensor.</li><li>Borra códigos de falla.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" data-escribir>4. Silenciador perforado</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Inspecciona soldaduras.</li><li>Sustituye el silenciador completo.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" data-escribir>5. Soportes de escape rotos</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Reemplaza gomas colgantes dañadas.</li><li>Asegura que el tubo no toque la carrocería.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" data-escribir>6. Vibraciones en resonador</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Aprieta abrazaderas.</li><li>Reemplaza si el interior está suelto.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="index.html"><button class="boton-regreso">Regresar</button></a>
+  <script>const items=document.querySelectorAll('.accordion-header');items.forEach(h=>{h.addEventListener('click',()=>{h.parentElement.classList.toggle('active');});});</script>
+  <script>document.addEventListener("DOMContentLoaded",()=>{const v=30;document.querySelectorAll('[data-escribir]').forEach(el=>{const t=el.textContent.trim();el.textContent='';let i=0;const w=()=>{if(i<t.length){el.textContent+=t.charAt(i);i++;setTimeout(w,v);}};w();});});</script>
+</body>
+</html>

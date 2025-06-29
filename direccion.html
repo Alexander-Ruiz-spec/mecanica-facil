@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Dirección - Mecánica Fácil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+
+    body {background-color:black;color:white;font-family:'Poppins',sans-serif;margin:0;padding:0;}
+    .cabecera{width:100%;display:flex;justify-content:center;align-items:center;padding:20px 0;position:relative;}
+    #logo{position:absolute;left:20px;height:75px;}@media(max-width:500px){#logo{display:none;}}
+    #titulo{text-align:center;font-size:3rem;margin:0;}
+    .contenedor-flex{display:flex;flex-direction:column;align-items:center;width:90%;margin:0 auto 20px auto;}
+    .P-b,.solucion-rapida{width:100%;max-width:900px;margin:20px 0;}
+    .titulo-bateria,.titulo-solucion,.texto-bateria,.texto-solucion,.accordion-header,.accordion-content li{white-space:pre-line;overflow:hidden;}
+    .titulo-bateria,.titulo-solucion{font-size:2rem;}
+    .texto-bateria,.texto-solucion{font-size:1.2rem;line-height:1.6;}
+    .imagen{width:250px;height:250px;border:1px solid white;margin:10px 0;}
+    .accordion{width:100%;max-width:900px;margin:0 auto;}
+    .accordion-item{background-color:#222;margin-bottom:10px;border-radius:10px;overflow:hidden;border:1px solid #555;transition:all 0.3s ease;}
+    .accordion-header{background-color:#333;padding:15px 20px;cursor:pointer;font-weight:bold;font-size:1.2rem;transition:background 0.3s;}
+    .accordion-header:hover{background-color:#444;}
+    .accordion-content{padding:0 20px;max-height:0;overflow:hidden;background-color:#111;font-size:1rem;line-height:1.6;transition:max-height 0.4s ease;}
+    .accordion-item.active .accordion-content{padding:15px 20px;max-height:1000px;}
+    .boton-regreso{background:linear-gradient(135deg,white,grey);color:black;padding:15px 30px;font-size:1.2rem;border:none;border-radius:50px;cursor:pointer;margin:30px auto;display:block;}
+    .boton-regreso:hover{background:linear-gradient(135deg,grey,white);transform:scale(1.05);}
+
+  </style>
+</head>
+<body>
+  <div class="cabecera"><img id="logo" src="logo.png" alt="Logo"><h1 id="titulo">Mecánica Fácil</h1></div>
+  <hr style="width: 100%;">
+  <div class="contenedor-flex">
+    <div class="P-b">
+      <h1 class="titulo-bateria" data-escribir>PROBLEMAS PRINCIPALES DEL SISTEMA DE DIRECCIÓN</h1>
+      <p class="texto-bateria" data-escribir>
+        - HOLGURA EN LA CREMALLERA: Juego en el volante.
+        - BOMBA HIDRÁULICA DESGASTADA: Dureza al girar y silbidos.
+        - TERMINALES FLOJOS: Vibración y desgaste de neumáticos.
+        - ACOPLE UNIVERSAL SECO: Crujidos al girar.
+        - FLECHA INTERMEDIA OXIDADA: Atascos parciales del volante.
+        - SOPORTES DE CREMALLERA DAÑADOS: Golpes al pasar baches.
+        - ALINEACIÓN INCORRECTA: Tirones hacia un lado.
+      </p>
+      <img class="imagen" src="direccion.jpg" alt="Sistema de dirección">
+    </div>
+    <div class="solucion-rapida">
+      <h1 class="titulo-solucion" data-escribir>MENÚ DE PROBLEMAS COMUNES Y SOLUCIONES</h1>
+      <div class="accordion">
+
+        <div class="accordion-item">
+          <div class="accordion-header" data-escribir>1. Cremallera con holgura</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Levanta el eje delantero.</li><li>Ajusta el tornillo de precarga.</li><li>Reemplaza si persiste el juego.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" data-escribir>2. Bomba hidráulica ruidosa</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Escucha silbidos.</li><li>Comprueba presión con manómetro.</li><li>Sustituye la bomba si es baja.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" data-escribir>3. Terminales flojos</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Mueve la rueda 3‑9.</li><li>Reemplaza terminal y alinea.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" data-escribir>4. Crujido en unión cardánica</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Lubrica con penetrante.</li><li>Sustituye la junta si vuelve el ruido.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" data-escribir>5. Soportes de cremallera dañados</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Revisa tacos de goma.</li><li>Cambia soportes y aprieta pernos.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" data-escribir>6. Alineación desajustada</div>
+          <div class="accordion-content">
+            <ol>
+              <li>Lleva a banco de alineación.</li><li>Ajusta ángulos de convergencia y caída.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="index.html"><button class="boton-regreso">Regresar</button></a>
+  <script>const items=document.querySelectorAll('.accordion-header');items.forEach(h=>{h.addEventListener('click',()=>{h.parentElement.classList.toggle('active');});});</script>
+  <script>document.addEventListener("DOMContentLoaded",()=>{const v=30;document.querySelectorAll('[data-escribir]').forEach(el=>{const t=el.textContent.trim();el.textContent='';let i=0;const w=()=>{if(i<t.length){el.textContent+=t.charAt(i);i++;setTimeout(w,v);}};w();});});</script>
+</body>
+</html>
